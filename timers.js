@@ -27,10 +27,10 @@ var timer = {
 
     this.els.reset.addEventListener('click', function() {
       console.log('reset');
-      seconds = 0;
+      this.seconds = 0;
       clearInterval(this.timerId);
       this.els.timer.textContent = 'Stop Watch';
-    });
+    }.bind(this));
   }
 }
 
