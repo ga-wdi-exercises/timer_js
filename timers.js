@@ -13,7 +13,17 @@ resetBtn.addEventListener("click",resetClickEvent);
 startBtn.addEventListener("click",startClickEvent);
 pauseBtn.addEventListener("click",pauseClickEvent);
 
+function resetClickEvent(){
+  console.log("thisevent has fired!");
+};
 
+function startClickEvent(){
+  console.log("thisevent has fired!");
+};
+
+function pauseClickEvent(){
+  console.log("thisevent has fired!");
+};
 // Instantiate seconds and timerId variables for your timer. The latter will make more sense after reading up on setInterval().
 // Create an updateTime() function that increments the seconds counter and inserts that value into the <h1> element with id="timer".
 // Inside your click handler for the start button...
