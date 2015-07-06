@@ -6,7 +6,7 @@
 }
 
 h1 {
-  font-family: Josefin Slab;
+  font-family: Josefin Slab, Arial;
   font-size: 72px;
   text-align: center;
 }
@@ -14,7 +14,7 @@ h1 {
 button {
   background: #4479BA;
   color: #FFF;
-  font-family: Josefin Slab;
+  font-family: Josefin Slab, Arial;
   font-size: 50px;
   text-align: center;
   border: 1px solid black;
@@ -27,4 +27,3 @@ button {
 button:hover{
     background: #356094;
 }
-
