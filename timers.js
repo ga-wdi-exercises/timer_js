@@ -2,14 +2,19 @@ var buttons = document.getElementById("allButtons");
 
 buttons.addEventListener("click", buttonClick);
 var stopwatchInterval;
+var startCount = 0;
 function buttonClick(){
   if (event.target.id == "start"){
-    stopwatchInterval = setInterval(increaseStopwatch, 1000);
+    if (startCount === 0){
+          stopwatchInterval = setInterval(increaseStopwatch, 1000);
+    }
   } else if (event.target.id == "pause"){
     clearInterval(stopwatchInterval);
+    startCount = 0;
   } else if (event.target.id == "reset"){
     clearInterval(stopwatchInterval);
     stopwatchValue = 0;
+    startCount = 0;
     document.getElementById("timer").innerHTML = "Stop Watch";
   }
 }
