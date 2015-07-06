@@ -1,3 +1,7 @@
+* {
+  border: 1px dashed red;
+}
+
 @import url(http://fonts.googleapis.com/css?family=Josefin+Slab);
 
 .controls {
