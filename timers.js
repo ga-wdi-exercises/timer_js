@@ -7,6 +7,10 @@ function buttonClick(){
     stopwatchInterval = setInterval(increaseStopwatch, 1000);
   } else if (event.target.id == "pause"){
     clearInterval(stopwatchInterval);
+  } else if (event.target.id == "reset"){
+    clearInterval(stopwatchInterval);
+    stopwatchValue = 0;
+    document.getElementById("timer").innerHTML = "Stop Watch";
   }
 }
 
