@@ -1,9 +1,38 @@
-var reset = document.getElementById("reset");
-var start = document.getElementById("start");
-var stop = document.getElementById("stop");
-var timer = document.getElementById("timer");
-var stopwatch = window.setInterval(newWatch, 500);
+  var reset = document.getElementById("reset")
+  var start = document.getElementById("start");
+  var pause = document.getElementById("pause");
+  var watch = document.getElementById("timer");
+  var seconds = 0;
+  var newTimer;
+  var started = false;
 
-function newWatch() {
-  timer.innerHTML = "Time elapsed: 0";
-}
+  reset.addEventListener("click", resetTimer);
+  start.addEventListener("click", startTimer);
+  pause.addEventListener("click", pauseTimer);
+
+  function resetTimer() {
+    clearInterval(newTimer);
+    seconds = 0;
+    watch.innerHTML = "Stop Watch";
+    started = false;
+
+  }
+
+  function startTimer() {
+    if (!started){
+      watch.innerHTML = "Time elapsed: " + seconds;
+      newTimer = setInterval(updateTime, 1000);
+      started = true;
+    }
+  }
+
+  function pauseTimer() {
+    clearInterval(newTimer);
+    started = false;
+
+  }
+
+  function updateTime() {
+    seconds += 1;
+    watch.innerHTML = "Time elapsed: " + seconds;
+  }
