@@ -13,7 +13,7 @@ var timer = {
 }
 function updateTime (){
     timer.seconds += 1
-    timerContents.innerHTML = timer.seconds;
+    timerContents.innerHTML = 'Time Elapsed: ' +timer.seconds;
 
 }
 
@@ -21,7 +21,9 @@ function updateTime (){
 
 reset.addEventListener ("click", function () {
       clearInterval(timeAdd);
+      timer.seconds = 0;
       timerContents.innerHTML = 'Stop Watch';
+      startTest = 1;
 
 })
 
