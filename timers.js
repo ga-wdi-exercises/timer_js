@@ -3,6 +3,10 @@
 var timer = document.getElementById("timer");
 var resetButton = document.getElementsByClassName("controls")[0];
 var currTime=0;
+
+// Global timer boolean, used for limiting setInterval calls
+timerOn = false;
+
 console.log(timer.innerHTML);
 console.log(resetButton);
 
@@ -16,13 +20,13 @@ function takeAction(eventName) {
   //console.log(eventName.target.id);
 
   if(eventName.target.id == 'reset'){
-    console.log("RESET IT");
+    //console.log("RESET IT");
     resetTimer();
   }else if(eventName.target.id == 'start'){
-    console.log("STARTED IT");
+    //console.log("STARTED IT");
     startTimer();
   }else if(eventName.target.id == 'pause'){
-    console.log("PAUSED IT");
+    //console.log("PAUSED IT");
     pauseTimer();
   }
 
@@ -30,14 +34,18 @@ function takeAction(eventName) {
 }
 
 function startTimer(){
-  myTimer = setInterval( function(){
-    currTime++;
-    console.log(currTime);
-    timer.innerHTML = "Time elapsed: " + currTime;
-  }, 1000);
+  if(!timerOn){
+    timerOn = true
+    myTimer = setInterval( function(){
+        currTime++;
+        console.log(currTime);
+        timer.innerHTML = "Time elapsed: " + currTime;
+      }, 1000);
+  }
 }
 
 function pauseTimer(){
+  timerOn = false;
   clearInterval(myTimer);
 }
 
