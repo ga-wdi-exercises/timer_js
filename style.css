@@ -24,6 +24,10 @@ button {
 	text-align: center;
 }
 
-button:hover{
+button:hover {
 	background: #356094;
+}
+
+button:active {
+	background: #FF0000;
 }
