@@ -14,9 +14,19 @@ var timer = {
     this.buttons.timer.innerHTML = "Time elapsed: " + this.stopwatchValue;
   },
 
-  startListeners: function startListeners(){
+  startListeners: function(){
     this.buttons.start.addEventListener("click", function(){
       this.stopwatchInterval = setInterval(this.increaseStopwatch.bind(this), 1000);
+    }.bind(this));
+
+    this.buttons.pause.addEventListener("click", function(){
+      clearInterval(this.stopwatchInterval);
+    }.bind(this));
+
+    this.buttons.reset.addEventListener("click", function(){
+      clearInterval(this.stopwatchInterval);
+      this.stopwatchValue = 0;
+      this.buttons.timer.innerHTML = "Stop Watch";
     }.bind(this));
   }
 }
@@ -24,7 +34,9 @@ var timer = {
 timer.startListeners();
 
 
-
+/* in comparison to solution...
+  stopwatchInterval == timerId
+  stopwatchValue == seconds
 
 /*
 This section works but wanted to try the bonus using one object timer{}
