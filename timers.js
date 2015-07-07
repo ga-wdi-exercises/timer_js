@@ -7,7 +7,7 @@ var reset = document.getElementById("reset");
 
 start.addEventListener("click", function() {
 	timer.innerHTML = "Time elapsed: " + seconds;
-	timerId = setInterval("updateTime()", 1000);
+	timerId = setInterval(updateTime, 1000);
 });
 
 pause.addEventListener("click", function() {
