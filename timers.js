@@ -8,7 +8,7 @@ var pause = document.getElementById("pause");
 
 var seconds = 0;
 var timerId = null;
-
+var timer;
 function updateTime(time){
     // var timerUpdate = document.getElementById("timer").innerHTML(seconds);
     seconds = time + 1;
@@ -20,23 +20,29 @@ function updateTime(time){
 
 reset.addEventListener("click", function(event){
     //reset timer
-    console.log("reset pushed");
+
+    // clearInterval(timer);
+    window.location.reload();
 });
 
 start.addEventListener("click", function(event){
     //start timer
-    console.log("start pushed");
-    updateTime(seconds);
-    console.log(seconds);
+    var startClickCheck = true;
+
+    if (startClickCheck == true){
+    timer = setInterval(function(){
+                updateTime(seconds);
+                document.getElementById("timer").innerHTML = seconds;
+                }, 1000);
+    }
+    startClickCheck = false;
 });
 
 pause.addEventListener("click", function(event){
     //pause timer
-    console.log("pause pushed");
+    clearInterval(timer);
 });
 
-// Increments the second counter; inserts that
-// value in the <h1> element with id="timer"
 
 
 
