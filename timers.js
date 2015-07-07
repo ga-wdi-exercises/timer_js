@@ -16,7 +16,7 @@ The latter will make more sense after reading up on setInterval().*/
   var timerId;
 function count(){
       seconds ++;
-      document.getElementById("timer").innerHTML = seconds;
+      document.getElementById("timer").innerHTML ="Time elapsed: " + seconds;
       console.log(seconds);
 }
 //Inside your click handler for the start button...
