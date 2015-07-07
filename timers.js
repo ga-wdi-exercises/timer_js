@@ -7,7 +7,12 @@ var seconds = 0;
 var timerId;
 
 // Create click handlers (empty, for now) for each of the timer buttons.
-//reset.addEventListener("click", doWhenResetIsClicked)
+reset.addEventListener("click", doWhenResetIsClicked)
+function doWhenResetIsClicked() {
+  clearInterval(timerID);
+  seconds = 0;
+  document.getElementById("timer").innerHTML = "Stop Watch";
+}
 
 start.addEventListener("click", doWhenStartIsClicked)
 function doWhenStartIsClicked() {
