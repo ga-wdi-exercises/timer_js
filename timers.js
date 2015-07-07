@@ -27,11 +27,16 @@ function timerIncreaseByOne(){
 
 }
 function stopTimer() {
-  startButton.removeEventListener("click", startTimer);
-  clearInterval(timerId);
-  editTimer.innerHTML = "Stop Watch";
-  startButton.addEventListener("click", startTimer);
-  startingStopWatchNumber = 0;
+  if(startingStopWatchNumber === 0) {
+    console.log("user tried to reset watch prior to start");
+  }
+  else{
+    startButton.removeEventListener("click", startTimer);
+    clearInterval(timerId);
+    editTimer.innerHTML = "Stop Watch";
+    startButton.addEventListener("click", startTimer);
+    startingStopWatchNumber = 0;
+  }
 }
 function pauseTimer() {
   pauseClicks++;
