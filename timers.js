@@ -1,45 +1,37 @@
-// DOM
+var timer = {
+  seconds: 1,
+  timerID: null,
+  elements: {
+    start: document.getElementById("start"),
+    reset: document.getElementById("reset"),
+    pause: document.getElementById("pause"),
+    watch: document.getElementById("timer")
+  },
+  listen: function() { // these really execute the code
 
-var start = document.getElementById("start");
+        this.elements.start.addEventListener("click", this.functions.handleStart);
+        this.elements.reset.addEventListener("click", this.functions.handleReset);
+        this.elements.pause.addEventListener("click", this.functions.handlePause);
 
-var reset = document.getElementById("reset");
-
-var pause = document.getElementById("pause");
-
-var timerID = document.getElementById("timer");
-
-// Event Listners
-
-start.addEventListener("click",function(){
-
-  seconds = setInterval(updateTime, 1000);
-  // When pressed again, how do I stop it
-  // from going faster.
-});
-
-reset.addEventListener("click",function(){
-
-  clearInterval(seconds);
-  counter = 0;
-  timerID.innerHTML = "Stop Watch";
-
- });
-
-pause.addEventListener("click",function(){
-
-  counter = counter;
-  timerID.innerHTML = "Time elapsed: " + counter;
-  clearTimeout(seconds);  // Not sure if this is right or a cop out?  
-
-});
-
-var seconds;
-
-var counter = 0;
-
-function updateTime() {
-
-  timerID.innerHTML = "Time elapsed: " + counter;
-  counter += 1;
-
-}
+      },
+  functions: { // how do you use this in the sction below.
+    handleStart: function () {
+              if (!timer.timerID) {
+                timer.timerID = setInterval(timer.functions.updateTime, 1000);
+                }
+              },
+    handleReset: function () {
+          timer.timerID = clearInterval(timer.timerID);
+          timer.seconds = 0;
+          timer.elements.watch.innerHTML = "Stop Watch";
+        },
+    handlePause: function () {
+           timer.timerID = clearInterval(timer.timerID);
+         },
+    updateTime: function () {
+          timer.elements.watch.innerHTML = "Time elapsed: " + timer.seconds;
+          timer.seconds += 1;
+        }
+    }
+};
+timer.listen();
