@@ -1,38 +1,33 @@
-  var reset = document.getElementById("reset")
-  var start = document.getElementById("start");
-  var pause = document.getElementById("pause");
-  var watch = document.getElementById("timer");
-  var seconds = 0;
-  var newTimer;
-  var started = false;
-
-  reset.addEventListener("click", resetTimer);
-  start.addEventListener("click", startTimer);
-  pause.addEventListener("click", pauseTimer);
-
-  function resetTimer() {
-    clearInterval(newTimer);
-    seconds = 0;
-    watch.innerHTML = "Stop Watch";
-    started = false;
-
+var timer = {
+  "reset": document.getElementById("reset"),
+  "start": document.getElementById("start"),
+  "pause": document.getElementById("pause"),
+  "watch": document.getElementById("timer"),
+  "seconds":  0,
+  "newTimer": null,
+  "started": false,
+  "run": function() {
+    var self = this;
+    self.reset.addEventListener("click", function() {
+      clearInterval(self.newTimer);
+      self.seconds = 0;
+      self.watch.innerHTML = "Stop Watch";
+      self.started = false;
+    });
+    self.start.addEventListener("click", function() {
+      if (!self.started){
+        self.watch.innerHTML = "Time elapsed: " + self.seconds;
+        self.newTimer = setInterval(function() {
+          self.seconds += 1;
+          self.watch.innerHTML = "Time elapsed: " + self.seconds;
+          }, 1000);
+        self.started = true;
+      }
+    });
+    self.pause.addEventListener("click", function() {
+      clearInterval(self.newTimer);
+      self.started = false;
+    });
   }
-
-  function startTimer() {
-    if (!started){
-      watch.innerHTML = "Time elapsed: " + seconds;
-      newTimer = setInterval(updateTime, 1000);
-      started = true;
-    }
-  }
-
-  function pauseTimer() {
-    clearInterval(newTimer);
-    started = false;
-
-  }
-
-  function updateTime() {
-    seconds += 1;
-    watch.innerHTML = "Time elapsed: " + seconds;
-  }
+}
+timer.run();
