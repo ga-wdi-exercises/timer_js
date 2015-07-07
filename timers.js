@@ -6,7 +6,7 @@ var seconds = 0;
 
 startButton.addEventListener("click", function(){
   timeCounter.innerHTML = "Time Elasped: " + seconds + "s";
-  var timerControl = setInterval(updateTime, 1000);
+  timerControl = setInterval(updateTime, 1000);
 });
 
 resetButton.addEventListener("click", function(){
