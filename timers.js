@@ -1,14 +1,20 @@
-document.getElementbyId("reset").onclick = clearInterval();
-document.getElementbyId("start").onclick = setInterval();
-document.getElementbyId("pause").onclick = clearInterval();
+var b1 = getElementbyId("reset");
+var b2 = getElementbyId("start");
+var b3 = getElementbyId("pause");
+var b4 = getElementbyId("timer"); //this id will change the stopwatch text
 
-var s = seconds;
-var t = timerID;
+var seconds = 0;
 
-function updateTime() {
-  for (var i=0; i>0; i++) {
-   document.createElement("timer");
-  }
+function resetButtonChosen(){
+
+};
+
+function startButtonChosen(){
+
+};
+
+function pauseButtonChosen(){
+
 }
 
 // window.setInterval();
