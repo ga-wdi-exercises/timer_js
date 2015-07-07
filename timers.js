@@ -3,24 +3,27 @@ var reset = document.querySelector("button#reset");
 var start = document.querySelector("button#start");
 var pause = document.querySelector("button#pause");
 
-// Create click handlers (empty, for now) for each of the timer buttons.
-reset.addEventListener("click", doWhenResetIsClicked) {
-
-}
-
-start.addEventListener("click", doWhenStartIsClicked) {
-  updateTime()
-}
-
-pause.addEventListener("click", doWhenPauseIsClicked) {
-
-}
-
-// Instantiate seconds and timerId variables for your timer. The latter will make more sense after reading up on setInterval().
 var seconds = 0;
-var timerId = 0;
+var timerId;
 
-// Create an updateTime() function that increments the seconds counter and inserts that value into the <h1> element with id="timer".
+// Create click handlers (empty, for now) for each of the timer buttons.
+//reset.addEventListener("click", doWhenResetIsClicked)
+
+start.addEventListener("click", doWhenStartIsClicked)
+function doWhenStartIsClicked() {
+    timerID = setInterval(updateTime, 1000)
+  }
+
+
+pause.addEventListener("click", doWhenPauseIsClicked)
+function doWhenPauseIsClicked() {
+  clearInterval(timerID);
+}
+
+// // Instantiate seconds and timerId variables for your timer. The latter will make more sense after reading up on setInterval().
+
+//
+// // Create an updateTime() function that increments the seconds counter and inserts that value into the <h1> element with id="timer".
 function updateTime() {
   seconds += 1;
   document.getElementById("timer").innerHTML = "Time elapsed: " +  seconds;
