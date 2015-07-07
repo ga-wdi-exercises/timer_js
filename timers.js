@@ -6,12 +6,16 @@ var pause = document.getElementById("pause");
 
 // seconds & timerId vars
 
-var seconds = null;
+var seconds = 0;
 var timerId = null;
 
-function clickedEvent (){
-
+function updateTime(time){
+    // var timerUpdate = document.getElementById("timer").innerHTML(seconds);
+    seconds = time + 1;
+    return seconds;
+    // return timerUpdate;
 }
+
 // Event Handlers for Reset, Start & Pause
 
 reset.addEventListener("click", function(event){
@@ -22,6 +26,8 @@ reset.addEventListener("click", function(event){
 start.addEventListener("click", function(event){
     //start timer
     console.log("start pushed");
+    updateTime(seconds);
+    console.log(seconds);
 });
 
 pause.addEventListener("click", function(event){
@@ -32,10 +38,7 @@ pause.addEventListener("click", function(event){
 // Increments the second counter; inserts that
 // value in the <h1> element with id="timer"
 
-function updateTime(seconds){
-    // var timerUpdate = document.getElementById("timer").innerHTML(seconds);
-    seconds ++;
-    // return timerUpdate;
-}
+
+
 
 
