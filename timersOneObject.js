@@ -8,6 +8,7 @@
 var buttons = document.querySelector(".controls");
 buttons.addEventListener("click", function(event) {
   if(event.target.tagName == "BUTTON") {
+    document.body.className = event.target.className;
     console.log(event.target.id);
   }
 })
