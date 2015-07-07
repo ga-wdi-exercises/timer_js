@@ -43,7 +43,7 @@ function pauseTimer(){
 
 function resetTimer(){
   currTime = 0;
-  timer.innerHTML = Start Timer;
+  timer.innerHTML = "Stop Watch";
 }
 // When "Pause" is clicked, the text should say "Time elapsed: 1", but stop incrementing.
 // swtitch timer from incrementing to stopped
