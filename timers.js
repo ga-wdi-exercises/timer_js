@@ -7,19 +7,26 @@ resetButton.addEventListener("click", resetButtonChosen);
 startButton.addEventListener("click", startButtonChosen);
 pauseButton.addEventListener("click", pauseButtonChosen);
 
-function fireStopwatch(){
- console.log("how do I get a timer to start?")
- 
+var seconds = 0;
+var timerID;
+var pressStartButton;
+
+function fireStopwatch() {
+  seconds++;
+  document.getElementById('timer').innerHTML = "Time elapsed: " + seconds;
 }
 function resetButtonChosen() {
-  window.clearInterval(timerMorph);
-  document.getElementById('timer').innerHTML = "Stop Watch (toggle)";
+  window.clearInterval(pressStartButton);
+  seconds = 0;
+  document.getElementById('timer').innerHTML = "Stop Watch " + seconds;
+  startButton.setAttribute("style","display: inline-block");
 }
 function startButtonChosen() {
-  document.getElementById('timer').innerHTML = "Time elapsed: 0"
-  var pressStartButton = window.setInterval(fireStopwatch, 0);
+  pressStartButton = window.setInterval(fireStopwatch, 1000);
+  startButton.setAttribute("style","display: none");
 }
 function pauseButtonChosen() {
- document.getElementById('timer').innerHTML = "Time elapsed: 1";
- var seconds = 0;
+ window.clearInterval(pressStartButton);
+ document.getElementById('timer').innerHTML = "Time elapsed: " + seconds;
+ startButton.setAttribute("style","display: inline-block");
 }
