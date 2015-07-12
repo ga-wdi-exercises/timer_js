@@ -1,29 +1,29 @@
-@import url(http://fonts.googleapis.com/css?family=Josefin+Slab);
+@import url(http://fonts.googleapis.com/css?family=Nunito:400,300,700|Pontano+Sans);
 
 .controls {
   margin: 50px;
   text-align: center;
 }
-
 h1 {
-  font-family: Josefin Slab;
+  font-family: 'Pontano Sans', sans-serif;
   font-size: 72px;
   text-align: center;
+  color: #27496d;
 }
-
 button {
-  background: #4479BA;
-  color: #FFF;
-  font-family: Josefin Slab;
-  font-size: 50px;
+  width: 150px;
+  height: 75px;
+  color: #6496c8;
+  background: rgba(0,0,0,0);
+  border: solid 5px #6496c8;
+  font-family: 'Pontano Sans', sans-serif;
+  font-size: 26px;
   text-align: center;
-  border: 1px solid black;
   margin: 20px;
   padding: 15px 25px;
-  border-radius: 10px;
-  box-shadow: 2px 2px black;
+  outline: none;
 }
-
-button:hover{
-    background: #356094;
+button:hover {
+  border-color: #346392;
+  color: #346392;
 }

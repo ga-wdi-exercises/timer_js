@@ -1,24 +1,22 @@
 var resetButton = document.querySelector("#reset");
 var startButton = document.querySelector("#start");
 var pauseButton = document.querySelector("#pause");
-var timerMorph = document.querySelector("#timer");
 
 resetButton.addEventListener("click", resetButtonChosen);
 startButton.addEventListener("click", startButtonChosen);
 pauseButton.addEventListener("click", pauseButtonChosen);
 
 var seconds = 0;
-var timerID;
 var pressStartButton;
 
 function fireStopwatch() {
   seconds++;
-  document.getElementById('timer').innerHTML = "Time elapsed: " + seconds;
+  document.getElementById("timer").innerHTML = "Time Elapsed: " + seconds;
 }
 function resetButtonChosen() {
   window.clearInterval(pressStartButton);
   seconds = 0;
-  document.getElementById('timer').innerHTML = "Stop Watch " + seconds;
+  document.getElementById("timer").innerHTML = "Stop Watch: " + seconds;
   startButton.setAttribute("style","display: inline-block");
 }
 function startButtonChosen() {
@@ -27,6 +25,6 @@ function startButtonChosen() {
 }
 function pauseButtonChosen() {
  window.clearInterval(pressStartButton);
- document.getElementById('timer').innerHTML = "Time elapsed: " + seconds;
+ document.getElementById("timer").innerHTML = "Time Elapsed: " + seconds;
  startButton.setAttribute("style","display: inline-block");
 }
