@@ -1,24 +1,22 @@
-var timeDisplay = document.getElementById('timer');
-var startBtn = document.getElementById('start');
-var pauseBtn = document.getElementById('pause');
-var resetBtn = document.getElementById('reset');
-
 var timer = {
-  // setup:function(){
-  //   timeDisplay = document.getElementById('timer');
-  //   var startBtn = document.getElementById('start');
-  //   var pauseBtn = document.getElementById('pause');
-  //   var resetBtn = document.getElementById('reset');
-  //   startBtn.addEventListener('click',function(){
-  //     return this.startTimer();
-  //   }.bind(this));
-  //   pauseBtn.addEventListener('click',function(){
-  //     return this.pauseTimer();
-  //   }.bind(this));
-  //   resetBtn.addEventListener('click',function(){
-  //     return this.resetTimer();
-  //   }.bind(this));
-  // },
+  display:function(){
+    return document.getElementById('timer');
+  },
+  setup:function(){
+    var startBtn = document.getElementById('start');
+    var pauseBtn = document.getElementById('pause');
+    var resetBtn = document.getElementById('reset');
+
+    startBtn.addEventListener('click',function(){
+      return timer.startTimer();
+    });
+    pauseBtn.addEventListener('click',function(){
+      return timer.pauseTimer();
+    });
+    resetBtn.addEventListener('click',function(){
+      return timer.resetTimer();
+    });
+  }(),
   seconds:0,
   started: false,
   //added this ^ property to prevent extra 'start' clicks from creating interval inside interval;
@@ -33,7 +31,8 @@ var timer = {
     tick = setInterval(this.incrementTimer.bind(this),1000);
   },
   incrementTimer: function(){
-    timeDisplay.textContent = "Time Elapsed: "+this.seconds;
+    var display = this.display();
+    display.textContent = "Time Elapsed: "+this.seconds;
     this.seconds++;
   },
   pauseTimer: function(){
@@ -44,16 +43,7 @@ var timer = {
   },
   resetTimer: function(){
     this.seconds = 0;
-    timeDisplay.textContent = "Time Elapsed: "+this.seconds;
+    var display = this.display();
+    display.textContent = "Time Elapsed: "+this.seconds;
   }
 }
-
-startBtn.addEventListener('click',function(){
-  return timer.startTimer();
-});
-pauseBtn.addEventListener('click',function(){
-  return timer.pauseTimer();
-});
-resetBtn.addEventListener('click',function(){
-  return timer.resetTimer();
-});
