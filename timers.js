@@ -7,7 +7,7 @@ function startTimerApp () {
   var updateTime = function(){
     var timer = document.getElementById('timer');
     timer.textContent = "Time elapsed: " + time;
-    time = time+1;
+    time++;
   }
 
   var timerSet;
