@@ -28,6 +28,7 @@ resetButton.addEventListener('click', function( event ) {
   stopTimer(timerId);
   seconds = 0;
   timerText.innerHTML = 'Stop Watch';
+  document.body.style.backgroundColor = 'white';
 });
 
 pauseButton.addEventListener('click', function( event ) {
