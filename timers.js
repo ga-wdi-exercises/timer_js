@@ -1,28 +1,45 @@
-
 //1
- var start = document.querySelector("#start");
-  var stop = document.querySelector("#pause");
-   var reset = document.querySelector("#reset");
+var start = document.getElementById("start");
+var pause = document.getElementById("pause");
+var reset = document.getElementById("reset");
 
-  //3
-var seconds;
+//3
+var seconds= 0;
 var timerId;
 
-var clickStart = function(){
-document.body.className ="controls"
-}
-//2
-start.addEventListener("click", function(){
 
-});
+  //2
+// start.addEventListener("click", function() {
+//   });
+//       pause.addEventListener("click", function() {
+//         });
+//             reset.addEventListener("click", function() {
+//
+//             });
 
-//4
-document.getElementsById("timer").innerHTML = seconds;
-function updateTime() {
-  console.log("update ran")
-}
-// setInterval(updateTime, 100)
+  //4
+          var updateTime =  function() {
+            seconds++;
+            // document.write(seconds)
+            }
 
-stop.addEventListener("click", function(){
-  clearInterval(timerId)
-});
+  //5
+
+    //when button clicked make changes
+
+    var startButtonAction = function(){
+      document.getElementById("timer").innerHTML = "Time elapsed: 0"
+      timerId = setInterval(updateTime, 1000) //increment per second
+    };
+    start.addEventListener("click",startButtonAction);
+
+    var pauseButtonAction = function(){
+      document.getElementById("timer").innerHTML = "Time elapsed: 1"
+      clearInterval(seconds);//stop timer
+    };
+    pause.addEventListener("click",pauseButtonAction);
+
+    var resetButtonAction = function(){
+      document.getElementById("timer").innerHTML = "Stop Watch"
+    };
+    reset.addEventListener("click",resetButtonAction);
