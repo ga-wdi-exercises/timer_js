@@ -1,56 +1,66 @@
 // THIS CODE WORKS BUT ITS NOT WELL WRITTEN!
+var timer = {
+  start:  document.getElementById('start'),
+  reset:  document.getElementById('reset'),
+  stop:   document.getElementById('start'),
+  pause:  document.getElementById('pause'),
+  seconds:  0,
+  changeName: function(){
+    this.start.textContent = "Stop";
+  },
+  changeBack: function (){
+    this.start.textContent = "Start";
+  },
+  clickStart: function (){timer.start.addEventListener("click", function(){
+          if (timer.seconds <= 0 || timer.start.textContent == "Start"){
+            timerID = setInterval(function(){
+            timer.start.setAttribute("id", timer.seconds);
+            document.getElementById('timer').innerHTML = "Time Lapsed: " + timer.seconds + "s";
+            timer.changeName();
+            timer.seconds ++;
+            },1000);
+          }
+          else if (timer.seconds > 0 || timer.start.textContent === "Stop"){
+            var stop = document.querySelectorAll("button")[1].id;
+            clearInterval(timerID);
+            console.log("You logged" + timer.stop + "seconds");
+            document.getElementById('timer').innerHTML = "You logged: " + timer.seconds + "s";
+            timer.changeBack();
+          }
+  });
+},
 
-
-var start = document.getElementById('start');
-var reset = document.getElementById('reset');
-var stop = document.getElementById('start');
-var pause = document.getElementById('pause');
-var seconds = 0;
-var timerCount;
-
-function changeName(){
-  start.textContent = "Stop";
-}
-
-function changeBack(){
-  start.textContent = "Start";
-}
-
-var clickStart = start.addEventListener("click", function(){
-        if (seconds <= 0 || start.textContent == "Start"){
-          timerID = setInterval(function(){
-          document.getElementById('timer').innerHTML = "Time Lapsed: " + seconds + "s";
-          changeName();
-          start.setAttribute("id", seconds);
-          seconds ++;
-          },1000);
-        }
-        else if (seconds > 0 || start.textContent === "Stop"){
+  resetClock: function() {
+      timer.reset.addEventListener("click", function() {
         var stop = document.querySelectorAll("button")[1].id;
+        stop = 0;
         clearInterval(timerID);
-        console.log("You logged" + stop + "seconds");
-        document.getElementById('timer').innerHTML = "You logged: " + seconds + "s";
-        changeBack();
-      }
-});
+        console.log("You logged" + timer.stop + "seconds");
+        timer.seconds = 0;
+        document.getElementById('timer').innerHTML = "Stop Watch";
+        timer.changeBack();
+    });
+},
 
-var reset = reset.addEventListener("click", function() {
-  var stop = document.querySelectorAll("button")[1].id;
-  clearInterval(timerID);
-  console.log("You logged" + stop + "seconds");
-  seconds = 0;
-  document.getElementById('timer').innerHTML = "Stop Watch";
-  changeBack();
-});
+  pauseClock: function() {
+    pause.addEventListener("click", function() {
+      var stop = document.querySelectorAll("button")[1].id;
+      console.log("You are stopped at" + timer.stop + "seconds");
+      clearInterval(timerID);
+      timer.seconds = stop;
+      document.getElementById('timer').innerHTML = "Time Lapsed: " + timer.seconds + "s";
+      timer.changeBack();
+    });
+   }
+};
 
-var pause = pause.addEventListener("click", function() {
-  var stop = document.querySelectorAll("button")[1].id;
-  console.log("You are stopped at" + stop + "seconds");
-  clearInterval(timerID);
-  seconds = stop;
-  document.getElementById('timer').innerHTML = "Time Lapsed: " + seconds + "s";
-  changeBack();
-});
+timer.clickStart();
+timer.pauseClock();
+timer.resetClock();
+
+
+
+
 /*
 var timer = {
   start: document.getElementById('start'),
