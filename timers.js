@@ -1,7 +1,11 @@
+
+
 //create selectors that target the buttons
 var resetButton = document.querySelector("#reset");
 var startButton = document.querySelector("#start");
 var pauseButton = document.querySelector("#pause");
+
+//declare variables
 
 displayTime = document.querySelector("h1")
 displayTime.id = "#timer"
@@ -34,12 +38,13 @@ var pauseTimer = function() {
   isRunning = false;
 }
 
+//add event listeners on buttons
+
 resetButton.addEventListener("click", resetTimer);
 startButton.addEventListener("click", startTimer);
 pauseButton.addEventListener("click", pauseTimer);
 
-
-// 4. Create an `updateTime()` function that increments the `seconds` counter and inserts that value into the `<h1>` element with `id="timer"`.
+//timer update function
 
 var updateTime = function() {
   displayTime.textContent = seconds;
