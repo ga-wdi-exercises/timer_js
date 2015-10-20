@@ -1,3 +1,4 @@
+var timer = function(){
   resetButton = document.getElementById("reset");
   startButton = document.getElementById("start");
   pauseButton = document.getElementById("pause");
@@ -59,3 +60,5 @@
   resetButton.addEventListener("click", resetB);
   startButton.addEventListener("click", startB);
   pauseButton.addEventListener("click", pauseB);
+}
+timer();
