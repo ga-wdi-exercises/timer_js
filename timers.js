@@ -3,6 +3,7 @@ var resetButton = document.querySelector("#reset");
 var startButton = document.querySelector("#start");
 var pauseButton = document.querySelector("#pause");
 var h1 = document.querySelector("#timer");
+var h1new = h1.cloneNode(true);
 var seconds = 0;
 var timerId;
 
@@ -25,8 +26,8 @@ pauseButton.addEventListener("click", function(){
 resetButton.addEventListener("click", function(){
   clearInterval(secondsTimer);
   seconds = 0;
-  h1.textContent = "Stop Watch";
-});
+  h1.textContent = h1new.textContent;
+}); 
 
 
 
