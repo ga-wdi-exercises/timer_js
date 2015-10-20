@@ -1,39 +1,50 @@
-// Get All DOM Elements
-var reset = document.getElementById("reset");
-var start = document.getElementById("start");
-var pause = document.getElementById("pause");
-var timer = document.getElementById("timer");
+var stopWatch = {
 
-// Initialize Timer at 0
-var seconds = 0;
+  // Get All DOM Elements
+  resetButton: document.getElementById("reset"),
+  startButton: document.getElementById("start"),
+  pauseButton: document.getElementById("pause"),
+  timer: document.getElementById("timer"),
 
-// Initialize timerID
-var timerID;
+  //Initialize Timer at 0
+  seconds: 0,
 
-// Update Time Function
-var updateTime = function () {
-  seconds++;
-  timer.textContent = seconds;
+  //Initialize timerID
+  timerID: null,
+
+  // Update Time Function
+  updateTime: function () {
+    stopWatch.seconds++;
+    stopWatch.timer.textContent = "Time elapsed: " + stopWatch.seconds + " seconds";
+  },
+
+  listen: function() {
+    // Start Button Listener
+    stopWatch.startButton.addEventListener("click", function(){
+      if (!stopWatch.timerID) {
+        // Set Interval at which to run updateTime Function
+        stopWatch.timerID = setInterval(stopWatch.updateTime, 1000);
+        // Replace "Stop Watch" with timer
+        stopWatch.timer.textContent = "Time elapsed: " + stopWatch.seconds + " seconds";
+      }
+    });
+
+    // Pause Button Listener
+    stopWatch.pauseButton.addEventListener("click", function(){
+      clearInterval(stopWatch.timerID);
+      stopWatch.timerID = null;
+    });
+
+    //Reset Button Listener
+    stopWatch.resetButton.addEventListener("click", function() {
+      // Pause timer and reset seconds to 0
+      clearInterval(stopWatch.timerID);
+      stopWatch.timerID = null;
+      stopWatch.seconds = 0;
+      // Replace timer text with "Stop Watch"
+      stopWatch.timer.textContent = "Stop Watch";
+    });
+  }
 }
 
-//Reset Button Listener
-reset.addEventListener("click", function() {
-  // Pause timer and reset seconds to 0
-  clearInterval(timerID);
-  seconds = 0;
-  // Replace timer text with "Stop Watch"
-  timer.textContent = "Stop Watch";
-});
-
-// Start Button Listener
-start.addEventListener("click", function(){
-  // Set Interval at which to run updateTime Function
-  timerID = setInterval(updateTime, 1000);
-  // Replace "Stop Watch" with timer
-  timer.textContent = seconds;
-});
-
-// Pause Button Listener
-pause.addEventListener("click", function(){
-  clearInterval(timerID);
-});
+stopWatch.listen();
