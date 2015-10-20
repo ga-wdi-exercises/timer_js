@@ -6,13 +6,13 @@
 }
 
 h1 {
-  font-family: Josefin Slab;
+  font-family: "Kaushan Script";
   font-size: 72px;
   text-align: center;
 }
 
 button {
-  background: #4479BA;
+  background: #111A7A;
   color: #FFF;
   font-family: Josefin Slab;
   font-size: 50px;
@@ -27,4 +27,3 @@ button {
 button:hover{
     background: #356094;
 }
-
