@@ -48,7 +48,8 @@ function updateTime () {
     // stops incrementing
 
 
-// timerID variable alt?
+// Junk Code
+
 // var timerId;
 // pause.addEventListener("click", function(){
 //   timerID = setInterval(seconds, 1000);
