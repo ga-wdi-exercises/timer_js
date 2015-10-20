@@ -20,7 +20,7 @@ var stopWatch = {
 
   listen: function() {
     // Start Button Listener
-    stopWatch.startButton.addEventListener("click", function(){
+    this.startButton.addEventListener("click", function(){
       if (!stopWatch.timerID) {
         // Set Interval at which to run updateTime Function
         stopWatch.timerID = setInterval(stopWatch.updateTime, 1000);
@@ -30,13 +30,13 @@ var stopWatch = {
     });
 
     // Pause Button Listener
-    stopWatch.pauseButton.addEventListener("click", function(){
+    this.pauseButton.addEventListener("click", function(){
       clearInterval(stopWatch.timerID);
       stopWatch.timerID = null;
     });
 
     //Reset Button Listener
-    stopWatch.resetButton.addEventListener("click", function() {
+    this.resetButton.addEventListener("click", function() {
       // Pause timer and reset seconds to 0
       clearInterval(stopWatch.timerID);
       stopWatch.timerID = null;
