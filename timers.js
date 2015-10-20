@@ -1,10 +1,29 @@
 // Step 1.
-var reset = document.querySelector("#reset");
-var start = document.querySelector("#start");
-var pause = document.querySelector("#pause");
+var resetButton = document.querySelector("#reset");
+var startButton = document.querySelector("#start") ;
+var pauseButton = document.querySelector("#pause");
 
-// Step 2.
+// Step 2. & Step 5,6,7
 
-document.getElementById("reset").addEventListener("click");
-document.getElementById("start").addEventListener("click");
-document.getElementById("pause").addEventListener("click");
+resetButton.addEventListener("click");
+
+startButton.addEventListener("click", function() {
+	watchTimer = setInterval(updateTime, 1000);
+});
+
+pauseButton.addEventListener("click");
+
+// Step 3.
+
+var seconds;
+var timerId;
+
+
+// Step 4.
+
+var updateTime = function() {
+	for (seconds = 0; seconds < 1; seconds ++) {
+		seconds = setInterval(seconds, 100);
+		 document.getElementById('timer').textContent = "Time Elapsed: " + seconds ;
+	}
+};
