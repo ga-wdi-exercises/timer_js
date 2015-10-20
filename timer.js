@@ -11,19 +11,25 @@ function startTimerApp () {
   }
 
   var timerSet;
-  start.addEventListener("click", function(){
-    var timer = document.getElementById('timer');
+  var startTime = function () {
     timerSet = setInterval(updateTime, 1000);
-      // start.addEventListener("click", function(evt){
-      //   evt.preventDefault();
-      // })
-  });
+    start.removeEventListener("click",startTime);
+  }
+
+  start.addEventListener("click", startTime);
+
+  // start.addEventListener("click", function(){
+  //   var timer = document.getElementById('timer');
+  //   timerSet = setInterval(updateTime, 1000);
+  //     start.removeEventListener("click", timerSet)
+  // });
 
   pause.addEventListener("click", function(){
     console.log("stopped at " + time);
     var timerStop = document.getElementById('timer');
     timerStop.textContent = "Time stopped at: " + time;
     clearInterval(timerSet);
+    // start.addEventListener("click",startTime);
   });
 
   reset.addEventListener("click", function(){
