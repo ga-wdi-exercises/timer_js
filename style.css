@@ -25,6 +25,15 @@ button {
 }
 
 button:hover{
-    background: #356094;
+    /*background: #356094;*/
+    opacity: 0.65;
 }
 
+body {
+  background-color: white;
+  transition: all 1.0s ease;
+}
+
+.clicked {
+  background-color: green;
+}
