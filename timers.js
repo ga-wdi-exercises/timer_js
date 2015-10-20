@@ -8,7 +8,7 @@ var timerId;
 
 function updateTime() {
     h1.textContent = "Time Elapsed: " + seconds;
-    var newSeconds = seconds++;
+    newSeconds = seconds++;
     h1.textContent = "Time Elapsed: " + newSeconds;
 };
 
@@ -18,10 +18,18 @@ function interval() {
 
 startButton.addEventListener("click", interval);
 
-resetButton.addEventListener();
+pauseButton.addEventListener("click", function(){
+  clearInterval(secondsTimer);
+});
+
+resetButton.addEventListener("click", function(){
+  clearInterval(secondsTimer);
+  seconds = 0;
+  h1.textContent = "Stop Watch";
+});
 
 
-// pauseButton.addEventListener();
+
 
 
 
