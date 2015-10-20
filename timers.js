@@ -1,17 +1,26 @@
-// Create JS selectors to target each of the timer buttons
-var resetButton = document.querySelector("#reset")
-var startButton = document.querySelector("#start")
-var pauseButton = document.querySelector("#pause")
+// Step 1: Create JS selectors to target each of the timer buttons
+var resetButton = document.querySelector("#reset");
+var startButton = document.querySelector("#start");
+var pauseButton = document.querySelector("#pause");
+var timer = document.querySelector("#timer");
+// Step 2. create click handlers for the timer buttons
+//resetButton.addEventListener("click",);
+startButton.addEventListener("click", updateTime);
+//startButton.addEventListener("click", );
+//pauseButton.addEventListener("click",);
 
-// create click handlers for the timer buttons
-resetButton.addEventListener("click",)
-startButton.addEventListener("click",)
-pauseButton.addEventListener("click",)
-
-//  Instantiate seconds and timerId veriables?
+//  Step 3: Instantiate seconds and timerId veriables
 var seconds = 0;
 var timerId = 0;
 
+// Step 4: Create function updateTime
+  // increment by seconds (1)
+  // insert value of seconds into <h1> element with id="#timer"
+
+function updateTime() {
+  seconds++;
+  timer.innerHTML = "Time elapsed: " + seconds;
+}
 
 // Start Functionality
   // click start
@@ -29,18 +38,11 @@ var timerId = 0;
     // stops incrementing
 
 
-
-// setInterval alt?
-function seconds (){
-  console.log("This will show seconds?");
-};
-setInterval(seconds, 1000);
-
 // timerID variable alt?
-var timerId;
-pause.addEventListener("click", function(){
-  timerID = setInterval(, 1000);
-});
-stop.addEventListener("click", function(){
-  clearInterval(timerId);
-});
+// var timerId;
+// pause.addEventListener("click", function(){
+//   timerID = setInterval(seconds, 1000);
+// });
+// stop.addEventListener("click", function(){
+//   clearInterval(timerId);
+// });
