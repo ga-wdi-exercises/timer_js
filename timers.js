@@ -1,26 +1,28 @@
-// alert("This Works!");
+// refactoring in jQuery
+var timer = document.querySelector("#timer");
 var startButton = document.querySelector("#start");
 var resetButton = document.querySelector("#reset");
 var pauseButton = document.querySelector("#pause");
+var seconds = 0;
+var interval;
 
-var startClickEvent = function(){
-interval = setInterval(updateTime, 1000);
- };
 var updateTime = function(){
   seconds++;
   timer.textContent = "Time Elapsed: " + seconds;
 };
-var seconds = 0;
-
+var startClickEvent = function(){
+  interval = setInterval(updateTime, 1000);
+ };
 startButton.addEventListener("click", startClickEvent);
 
-// var pauseButton = document.querySelector("pause");
-var timer = document.querySelector("#timer");
-var interval;
-var resetClickEvent = function(){
+var pauseClickEvent = function(){
   clearInterval(interval);
 };
-resetButton.addEventListener("click", resetClickEvent);
+pauseButton.addEventListener("click", pauseClickEvent);
 
-// var seconds =
-// var timerId =
+var resetClickEvent = function(){
+  clearInterval(interval);
+  seconds = 0;
+  timer.textContent = "Stop Watch";
+};
+resetButton.addEventListener("click", resetClickEvent);
