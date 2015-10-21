@@ -15,6 +15,7 @@ function resetButtonClickHandler() {
 }
 
 function startButtonClickHandler() {
+  document.getElementById("timer").textContent = "Time Elapsed: " + seconds;
   timerId = setInterval( updateTime, 1000);
   console.log("Timer started!");
   startButton.removeEventListener("click",startButtonClickHandler);
@@ -30,7 +31,7 @@ function pauseButtonClickHandler() {
 // Create an updateTime() function that increments the seconds counter and inserts that value into the <h1> element with id="timer".
 function updateTime() {
   seconds += 1;
-  document.getElementById("timer").textContent = seconds;
+  document.getElementById("timer").textContent = "Time Elapsed: " + seconds;
 }
 
 startButton.addEventListener("click", startButtonClickHandler);
