@@ -12,11 +12,13 @@ h1 {
 }
 
 button {
-  background: #4479BA;
+  background: #CA706C;
   color: #FFF;
   font-family: Josefin Slab;
-  font-size: 50px;
+  font-size: 35px;
   text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 5px;
   border: 1px solid black;
   margin: 20px;
   padding: 15px 25px;
@@ -27,4 +29,3 @@ button {
 button:hover{
     background: #356094;
 }
-
