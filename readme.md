@@ -2,6 +2,7 @@
 
 We've been tasked with building out the behavior for a digital stopwatch, the interface for which is in `index.html`.
 
+
 ####Client Specs
 * When "Start" is clicked, the text "Stop Watch" should be replaced by "Time elapsed: 0", and the count should increment every second.
 * When "Reset" is clicked, the text should return to "Stop Watch"
