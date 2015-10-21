@@ -6,25 +6,24 @@
 }
 
 h1 {
-  font-family: Josefin Slab;
+  font-family: 'VT323', ;
   font-size: 72px;
   text-align: center;
 }
 
 button {
-  background: #4479BA;
+  background: #D991A2;
   color: #FFF;
-  font-family: Josefin Slab;
-  font-size: 50px;
+  font-family: 'VT323', ;
+  font-size: 30px;
   text-align: center;
-  border: 1px solid black;
+  border: 1px solid #661729;
   margin: 20px;
   padding: 15px 25px;
-  border-radius: 10px;
-  box-shadow: 2px 2px black;
+  border-radius: 5px;
+  box-shadow: 2px 2px #661729;
 }
 
 button:hover{
-    background: #356094;
+    background: #FFD1DC;
 }
-
