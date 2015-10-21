@@ -11,13 +11,17 @@ var updateTime = function () {
 };
 
 var startButton = document.getElementById('start');
-startButton.addEventListener("click", function createTime() {
-  timerID = window.setInterval(updateTime, 1000);
+//if(seconds = 0) {
+startButton.addEventListener("click", function startTimer() {
+  if (!timerID) {
+    timerID = window.setInterval(updateTime, 1000);
+  }
 });
 
 var pauseButton = document.getElementById('pause');
 pauseButton.addEventListener("click", function pauseTime() {
   window.clearInterval(timerID);
+  timerID = null;
 });
 
 var resetButton = document.getElementById('reset');
@@ -25,4 +29,5 @@ resetButton.addEventListener("click", function resetTime() {
   window.clearInterval(timerID);
   seconds = 0;
   timer.innerHTML = "Stop Watch"
+  timerID = null;
 });
