@@ -16,7 +16,7 @@ This is a tough assignment, so don't stress over meeting all the requirements. J
 
 1. Create Javascript selectors that target each of the timer buttons.
 2. Create click handlers (empty, for now) for each of the timer buttons.
-3. Instantiate `seconds` and `timerId` variables for your timer. The latter will make more sense after reading up on `setInterval()`.
+3. Instantiate `seconds` and `timerId` variables for your timer. The latter wi  ll make more sense after reading up on `setInterval()`.
 4. Create an `updateTime()` function that increments the `seconds` counter and inserts that value into the `<h1>` element with `id="timer"`.
 5. Inside your click handler for the start button...
   - Replace "Stop Watch" in the HTML with the content of the `seconds` variable.
