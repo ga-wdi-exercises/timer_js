@@ -16,22 +16,19 @@ var startListener = startButton.addEventListener("click", function () {
   }
 });
 
-var pauseListener = pauseButton.addEventListener("click", function () {
-  var pauseClickHandler = function(){
-    clearInterval(timerId);
-    timerId = null;
+var pauseClickHandler = function(){
+  clearInterval(timerId);
+  timerId = null;
+};
+pauseButton.addEventListener("click", pauseClickHandler);
 
-  };
-});
-
-var resetListener = resetButton.addEventListener("click", function () {
-  var resetClickHandler = function(){
-    seconds = 0;
-    clearInterval(timerId);
-    timerH1.textContent = "Stop Watch";
-    timerId = null;
-  };
-});
+var resetClickHandler = function(){
+  seconds = 0;
+  clearInterval(timerId);
+  timerH1.textContent = "Stop Watch";
+  timerId = null;
+};
+resetButton.addEventListener("click", resetClickHandler);
 
 // var timer = {
 //   resetButton : document.querySelector("#reset"),
