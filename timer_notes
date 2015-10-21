@@ -1,0 +1,11 @@
+setTimeout()
+Calls a function or executes a code snippet after specified delay.
+
+setInterval()
+Calls a function or executes a code snippet repeatedly, with a fixed time delay between each call to that function.
+
+clearTimeout()
+Clears the delay set by setTimeout().
+
+clearInterval()
+Cancels repeated action which was set up using setInterval().
