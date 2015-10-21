@@ -11,7 +11,9 @@ startButton.addEventListener("click", function() {
 	watchTimer = setInterval(updateTime, 1000);
 });
 
-pauseButton.addEventListener("click");
+pauseButton.addEventListener("click", function() {
+	watchTimer = clearInterval(updateTime, 10000);
+});
 
 // Step 3.
 
