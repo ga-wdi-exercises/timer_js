@@ -3,33 +3,35 @@
 // Instantiate seconds and timerId variables for your timer. The latter will make more sense after reading up on setInterval().
 // Create an updateTime() function that increments the seconds counter and inserts that value into the <h1> element with id="timer".
 
-var seconds = null
+var seconds = 0
 var timerID = null
 
 var updateTime = function () {
-  seconds += 1;
-  var timerDisplay = xxx getElementById.document.body('timer')
+  var timerDisplay = document.getElementByTagName('h1')[0]
   timerDisplay.innerHTML = seconds
+  seconds += 1
 }
 
+// RESET
+var resetButton = document.getElementById('reset')
 
-var resetButton = document.getElementById("reset");
+resetButton.addEventListener('click', function (evt) {
+  console.log(resetButton)
+})
 
-resetButton.addEventListener("click", function (evt) {
+// START
+var startButton = document.getElementById('start')
 
-  console.log(resetButton);
-});
+startButton.addEventListener('click', function (evt) {
+  console.log(startButton)
+  setInterval(function () {
+    updateTime
+  }, 1000)
+})
 
-var startButton = document.getElementById("start");
+// PAUSE
+var pauseButton = document.getElementById('pause')
 
-startButton.addEventListener("click", function (evt) {
-
-  console.log(startButton);
-});
-
-var pauseButton = document.getElementById("pause");
-
-pauseButton.addEventListener("click", function (evt) {
-
-  console.log(pauseButton);
-});
+pauseButton.addEventListener('click', function (evt) {
+  console.log(pauseButton)
+})
