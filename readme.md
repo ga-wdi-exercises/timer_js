@@ -1,4 +1,4 @@
-## Stop Watch
+m## Stop Watch
 
 We've been tasked with building out the behavior for a digital stopwatch, the interface for which is in `index.html`.
 
