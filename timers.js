@@ -1,9 +1,17 @@
+//TODO: refactor using OOP princinples
+//TODO: fix countdown so msuic playing not in timeout
+//TODO: fix animation
+//TODO: add minutes and seconds for coutdown, change selection to input or drop down
+
+// song played when countdown ends is 'I Know The Truth' by Pretty Lights
+
 var startButton = document.getElementById('start');
 var resetButton = document.getElementById('reset');
 var pauseButton = document.getElementById('pause');
 var timerText = document.getElementById('timer');
 var bar = document.getElementById('bar');
 var level = document.querySelector('.level');
+var song = document.getElementById('song');
 
 var timer = {
   seconds: 0,
@@ -13,53 +21,43 @@ var timer = {
   green: 0,
   blue: 0,
   alpha: 0.125,
-  startButton: startButton,
-  resetButton: resetButton,
-  pauseButton: pauseButton,
-  timerText: timerText,
-  buttonArray: [
-    this.startButton,
-    this.resetButton,
-    this.pauseButton
-  ],
+  onStopWatch: true,
   addClickListeners: function() {
     var self = this;
-    self.startButton.addEventListener('click', function( event ) {
-      if(!self.start) {
-        console.log('working cuz self.start = ' + self.start);
+    startButton.addEventListener('click', function( event ) {
+      if(!self.start && self.onStopWatch) {
         self.updateTime();
         self.start = true;
       }
+      startButton.innerHTML = 'Start';
     });
 
-    self.resetButton.addEventListener('click', function( event ) {
-      self.stopTimer(self.timerId);
+    resetButton.addEventListener('click', function( event ) {
+      self.stopTimer();
       self.seconds = 0;
-      self.timerText.innerHTML = 'Stop Watch';
+      timerText.innerHTML = 'Stop Watch';
       document.body.style.backgroundColor = 'white';
+      startButton.innerHTML = 'Start';
     });
 
-    self.pauseButton.addEventListener('click', function( event ) {
-      self.stopTimer(self.timerId);
-    });
-
-    self.buttonArray.forEach(function(button){
-      button.addEventListener('click', function(){
-        self.clearClicked();
-        self.toggleClicked(this);
-      });
+    pauseButton.addEventListener('click', function() {
+      self.stopTimer();
+      startButton.innerHTML = 'Resume';
     });
   },
+  // removeClickListeners: function(){
+  //   pauseButton.removeEventListener('click', stopTimer);
+  // },
   updateTime: function() {
     var self = this;
     self.timerId = window.setInterval(function(){
         self.seconds += 1;
-        self.timerText.innerHTML = 'Time Elapsed = ' + self.seconds;
+        timerText.innerHTML = 'Time Elapsed = ' + self.seconds;
         self.updateColor();
       }, 1000);
     },
-  stopTimer: function(id) {
-    clearInterval(id);
+  stopTimer: function() {
+    clearInterval(this.timerId);
     this.start = false;
   },
   updateColor: function() {
@@ -78,35 +76,94 @@ var timer = {
   randomNumber: function() {
     return Math.floor(Math.random() * 9);
   },
-  toggleClicked: function(element) {
-      element.className = 'clicked';
-  },
-  clearClicked: function(){
-    for (var i = 0; i < this.buttonArray.length; i++) {
-      this.buttonArray[i].className = '';
-    }
-  },
+  // toggleClicked: function(element) {
+  //     element.className = 'clicked';
+  // },
+  // clearClicked: function(){
+  //   for (var i = 0; i < this.buttonArray.length; i++) {
+  //     this.buttonArray[i].className = '';
+  //   }
+  // },
   init: function() {
     this.addClickListeners();
+    self.timerText.innerHTML = 'Stop Watch';
+    startButton.innerHTML = 'Start';
+    bar.setAttribute('style', 'border: ;');
+    level.setAttribute('style', 'display: none');
+  },
+  // clearTimer: function() {
+  //   stopTimer(this.timerId);
+  //
+  // }
+  replaceButtons: function() {
+    var strtbutton = document.createElement('button');
+    strtbutton.id = 'start';
+    startButton = strtbutton;
   }
 };
 
-var stopwatch = {
+var countdown = {
+  songStartTime: 77,
+  songStart: false,
+  onCountdown: false,
   init: function() {
-    timerText.innerHTML = 'Stopwatch';
-    level.style.backgroundColor = 'rgba(0,176,0,1.0)';
+    timerText.innerHTML = 'Countdown';
+    // level.style.backgroundColor = 'rgba(0,176,0,1.0)';
+    this.addClickListeners();
+    document.body.style.backgroundColor = 'white';
+    startButton.innerHTML = 'Start';
+    bar.setAttribute('style', 'border: 2px solid black;');
+    level.setAttribute('style', 'display: block');
+  },
+  startTimer: function() {
     this.getInitialSeconds();
-    this.seconds = this.initialSeconds;
+    this.setSeconds();
+    level.style.backgroundColor = 'rgba(0,176,0,1.0)';
   },
   getInitialSeconds: function() {
-    this.initialSeconds = parseInt(prompt('How long?'));
+    this.initialSeconds = parseInt(prompt('How many seconds do you want to set the timer for?'));
+  },
+  setSeconds: function() {
+    this.seconds = this.initialSeconds;
   },
   addClickListeners: function() {
     var self = this;
     startButton.addEventListener('click', function() {
-      self.init();
-      self.updateTime();
+      if(self.seconds > 0) {
+        self.updateTime();
+        self.start = true;
+      }
+
+      if(!self.start && self.onCountdown) {
+        self.startTimer();
+        self.updateTime();
+        self.start = true;
+      }
+
+      startButton.innerHTML = 'Start';
     });
+    bar.addEventListener('click', function() {
+      document.getElementById('song').pause();
+      this.songStart = false;
+    });
+    resetButton.addEventListener('click', function( event ) {
+      self.stopTimer();
+      timerText.innerHTML = 'Countdown';
+      self.resetScreen();
+    });
+    pauseButton.addEventListener('click', function( event ) {
+      self.stopTimer();
+      song.pause();
+      startButton.innerHTML = 'Resume';
+    });
+  },
+  resetScreen: function(){
+    level.style.backgroundColor = 'white';
+    level.style.width = '100%';
+    song.pause();
+    this.songStart = false;
+    startButton.innerHTML = 'Start';
+    this.seconds = 0;
   },
   updateTime: function(){
     var self = this;
@@ -121,18 +178,71 @@ var stopwatch = {
     self.percent = self.seconds / self.initialSeconds * 100;
     level.style.width = self.percent + '%';
 
-    if (self.seconds === 0){
+    if (self.seconds <= 0){
       self.stopTimer(self.timerId);
+      timerText.innerHTML = 'Click to Stop Music';
     } else if (self.percent <= 10) {
       level.style.backgroundColor = 'red';
-    } else if (self.percent <= 50) {
+    } else if (self.percent <= 35 && self.seconds <= 60) {
       level.style.backgroundColor = 'yellow';
+
+      if (!self.songStart && self.seconds <= self.songStartTime) {
+        song.currentTime = self.songStartTime - self.seconds;
+        self.songStart = true;
+      }
+
+      // if (self.songStart) {
+        song.play();
+      // }
     }
   },
-  stopTimer: function(id) {
-    clearInterval(id);
+  stopTimer: function() {
+    clearInterval(this.timerId);
     this.start = false;
   }
 };
 
-stopwatch.addClickListeners();
+timer.init();
+
+var stopwatch = document.getElementById('stopwatch');
+var countdownButton = document.getElementById('countdown');
+
+stopwatch.addEventListener('click', function(){
+  countdown.onCountdown = false;
+  timer.onStopWatch = true;
+  countdown.stopTimer();
+  timer.init();
+  clearClicked();
+  countdown.resetScreen();
+});
+
+countdownButton.addEventListener('click', function(){
+  countdown.onCountdown = true;
+  timer.onStopWatch = false;
+  timer.stopTimer();
+  countdown.init();
+  clearClicked();
+});
+
+var buttonArray = [
+    startButton,
+    resetButton,
+    pauseButton
+  ];
+
+self.buttonArray.forEach(function(button){
+  button.addEventListener('click', function(){
+    clearClicked();
+    toggleClicked(this);
+  });
+});
+
+function toggleClicked (element) {
+    element.className = 'clicked';
+}
+
+function clearClicked(){
+  for (var i = 0; i < this.buttonArray.length; i++) {
+    this.buttonArray[i].className = '';
+  }
+}
