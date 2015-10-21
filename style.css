@@ -9,6 +9,7 @@ h1 {
   font-family: Josefin Slab;
   font-size: 72px;
   text-align: center;
+  z-index: 100;
 }
 
 button {
@@ -25,6 +26,50 @@ button {
 }
 
 button:hover{
-    background: #356094;
+    /*background: #356094;*/
+    opacity: 0.65;
 }
 
+body {
+  background-color: white;
+  transition: all 1.0s ease;
+}
+
+.clicked {
+  background-color: green;
+}
+
+.bar {
+  /*border: 2px solid black;*/
+  width: 75%;
+  margin: 0 auto;
+  position: relative;
+}
+
+.level {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  transition: width 1.0s linear;
+  z-index: -1;
+}
+
+.type {
+  /*width: 50px;*/
+  font-size: 20px;
+  margin: 0 10px;
+}
+
+/*.countdown {
+  position: absolute;
+  top: 10px;
+  left: 0px;
+}*/
+.types {
+  width: 40%;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+}

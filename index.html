@@ -3,17 +3,25 @@
 <head>
   <meta charset="utf-8">
   <link rel="stylesheet" href="style.css">
-  <title>i &hearts; js</title>
+  <title>TIMERS</title>
 </head>
 <body>
-
-  <h1 id="timer">Stop Watch</h1>
+  <div id='bar' class='bar'>
+    <h1 id="timer">Stop Watch</h1>
+    <div class='level'></div>
+  </div>
+  </div>
   <div class="controls">
     <button id="reset">Reset</button>
     <button id="start">Start</button>
     <button id="pause">Pause</button>
   </div>
-
-<script src="timers.js"></script>
+  <!--'I Know The Truth' by Pretty Lights-->
+  <audio id='song' src='iknowthetruth.mp3' preload='auto'></audio>
+  <div class='types'>
+    <button id='stopwatch' class='stopwatch type'>stopwatch</button>
+    <button id='countdown' class='countdown type'>countdown</button>
+  </div>
+  <script src="timers.js"></script>
 </body>
 </html>
