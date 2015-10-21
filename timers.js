@@ -12,7 +12,6 @@ var timerId = 0;
 // Step 2. create click handlers for the timer buttons
 //reset.addEventListener("click",);
 
-//pause.addEventListener("click",);
 
 
 
@@ -31,21 +30,39 @@ function updateTime () {
     // increase count by 1 second.
 
     function startClick () {
-      timer.innerHTML = "Time elapsed: " + seconds;
-      var secIncrement = seconds++;
+      var newSeconds = seconds++;
+      timer.innerHTML = "Time elapsed: " + newSeconds;
       timerId = setInterval(updateTime, 1000)
-    }
+      console.log("start action happens")
+    };
 
     start.addEventListener("click", startClick);
-
-// Reset Functionality
-  // click reset
-    //text returns to Stop Watch
 
 // Pause Functionality
   // click pause
     // text stays at time elapsed
     // stops incrementing
+
+    function pauseClick () {
+      clearInterval(updateTime);
+      console.log("pause action happens")
+    };
+
+    pause.addEventListener("click", pauseClick);
+
+
+
+// Reset Functionality
+  // click reset
+    //text returns to Stop Watch
+
+    function resetClick () {
+      clearInterval(updateTime)
+      console.log("reset action happens")
+    };
+
+    reset.addEventListener("click", resetClick)
+
 
 
 // Junk Code
