@@ -1,7 +1,7 @@
 // addListeners: function () {
 
   var seconds = 0
-  var timerId //realized i don't need to set this to anything, as its just a palceholder name
+  var timerId; //realized i don't need to set this to anything, as its just a palceholder name
 
   var updateTime = function() {
     seconds++
