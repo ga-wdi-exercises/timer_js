@@ -1,15 +1,16 @@
+var myStopWatch = function() {
 
 var resetButton = document.querySelector("#reset");
 var startButton = document.querySelector("#start");
 var pauseButton = document.querySelector("#pause");
 var h1 = document.querySelector("#timer");
-var h1new = h1.cloneNode(true); 
+// var h1new = h1.cloneNode(true);
 var seconds = 0;
 var timerId;
 
 function updateTime() {
     h1.textContent = "Time Elapsed: " + seconds;
-    newSeconds = seconds++;
+    var newSeconds = seconds++;
     h1.textContent = "Time Elapsed: " + newSeconds;
 };
 
@@ -26,13 +27,8 @@ pauseButton.addEventListener("click", function(){
 resetButton.addEventListener("click", function(){
   clearInterval(secondsTimer);
   seconds = 0;
-  h1.textContent = h1new.textContent;
+  h1.textContent = "Stop Watch";
 });
 
-
-
-
-
-
-
-// 5.
+} //ends myStopWatch object
+myStopWatch();
