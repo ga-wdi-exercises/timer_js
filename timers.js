@@ -43,21 +43,3 @@ var handleClickEventStop = function(){
 resetButton.addEventListener("click", handleClickEventReset);
 startButton.addEventListener("click", handleClickEventStart);
 stopButton.addEventListener("click", handleClickEventStop);
-
-
-
-
-// //ADAM CODE
-// function startTimerApp() {
-//   var seconds = 0;
-//   var minutes = 0;
-//   // other code here
-//
-// }
-// startTimerApp();
-// ## IIFE - immediate invoked function expression
-//
-// (function() {
-//   var seconds = 0;
-//   var minutes = 0;
-// })();
