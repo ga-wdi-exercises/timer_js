@@ -2,12 +2,15 @@
 BONUS VERSION WITH JQUERY
 ******************************************/
 
+// how do I change my global variables in init to local variables that everything in the timer object can access?
+
 var timer = {
   init: function() {
     stopWatch = $("#timer");
     reset = $("#reset");
     start = $("#start");
     pause = $("#pause");
+    timerStatus = "off";
     seconds = 0;
     start.on("click", function () {
       timer.startTimer();
@@ -29,15 +32,20 @@ var timer = {
     }
   },
   startTimer: function() {
-    countStart = setInterval(this.updateTime, 1000);
+    if (timerStatus === "off") {
+      countStart = setInterval(this.updateTime, 1000);
+      timerStatus = "on";
+    }
   },
   pauseTimer: function() {
     clearInterval(countStart);
+    timerStatus = "off";
   },
   resetTimer: function() {
     clearInterval(countStart);
     seconds = 0;
     stopWatch.html("Stop Watch");
+    timerStatus = "off";
   }
 }
 
