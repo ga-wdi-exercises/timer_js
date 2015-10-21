@@ -18,6 +18,7 @@
     this.buttons.start.addEventListener("click", function() {
       this.buttons.timer.textContent = this.seconds
       this.timerId = setInterval(this.updateTime.bind(this), 1000)
+
     }.bind(this))
 
     // clearInterval(this.timerId);
@@ -30,6 +31,8 @@
       clearInterval(this.timerId)
       this.buttons.timer.textContent = "Stop Watch"
     }.bind(this))
+
+
 
   }
 }
