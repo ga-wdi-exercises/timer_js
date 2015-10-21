@@ -7,7 +7,8 @@ var seconds = 0
 var timerID = null
 
 var updateTime = function () {
-  var timerDisplay = document.getElementByTagName('h1')[0]
+  var timerDisplay = document.querySelector('#timer')
+  console.log(timerDisplay)
   timerDisplay.innerHTML = seconds
   seconds += 1
 }
@@ -24,9 +25,7 @@ var startButton = document.getElementById('start')
 
 startButton.addEventListener('click', function (evt) {
   console.log(startButton)
-  setInterval(function () {
-    updateTime
-  }, 1000)
+  setInterval(updateTime, 1000)
 })
 
 // PAUSE
