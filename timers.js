@@ -4,8 +4,9 @@
 // Create an updateTime() function that increments the seconds counter and inserts that value into the <h1> element with id="timer".
 
 var seconds = 0
-var timerID = null
 var intervalStart
+var timerDisplay = document.querySelector('#timer')
+console.log(timerDisplay)
 
 var updateTime = function () {
   var timerDisplay = document.querySelector('#timer')
@@ -19,6 +20,9 @@ var resetButton = document.getElementById('reset')
 
 resetButton.addEventListener('click', function (evt) {
   console.log(resetButton)
+  clearInterval(intervalStart)
+  seconds = 0
+  timerDisplay.innerHTML = seconds
 })
 
 // START
