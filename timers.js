@@ -20,6 +20,7 @@ var timer = {
           this.timerId = setInterval(this.updateTime.bind(this), 1000);
         }.bind(this));
 
+
         this.elements.pause.addEventListener('click', function() {
           clearInterval(this.timerId);
         }.bind(this));
