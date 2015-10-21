@@ -12,6 +12,7 @@
 var startButton = function() {
   if (seconds === 0) {
     document.getElementById("timer").innerHTML = 0;
+    document.body.style.background = "gray"
   }
   clearInterval(timerId)
   timerId = setInterval(updateTime, 1000)
@@ -21,12 +22,14 @@ var startButton = function() {
 var pauseButton = function() {
   clearInterval(timerId)
   console.log("AM i paused yet?")
+  document.body.style.background = "lightgray"
 };
 
 var resetButton = function() {
   clearInterval(timerId)
   seconds = 0
   document.getElementById('timer').innerHTML = "Stop Watch"
+  document.body.style.background = "black"
 };
 
 
@@ -36,7 +39,8 @@ document.getElementById("reset").addEventListener("click", resetButton);
 
 
 
-//Here is all the steps i went through in order to get the above code!
+
+//Here is my first attempt:
 
 // //create javascript selectors that target each of the timer buttons
 // var resetButton  = document.querySelector("button");
