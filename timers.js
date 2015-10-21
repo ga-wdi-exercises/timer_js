@@ -12,6 +12,7 @@ var timerText = document.getElementById('timer');
 var bar = document.getElementById('bar');
 var level = document.querySelector('.level');
 var song = document.getElementById('song');
+var title = document.querySelector('title');
 
 var timer = {
   seconds: 0,
@@ -38,6 +39,7 @@ var timer = {
       timerText.innerHTML = 'Stop Watch';
       document.body.style.backgroundColor = 'white';
       startButton.innerHTML = 'Start';
+      setTitle('timer');
     });
 
     pauseButton.addEventListener('click', function() {
@@ -54,6 +56,7 @@ var timer = {
         self.seconds += 1;
         timerText.innerHTML = 'Time Elapsed = ' + self.seconds;
         self.updateColor();
+        setTitle(self.seconds);
       }, 1000);
     },
   stopTimer: function() {
@@ -90,6 +93,7 @@ var timer = {
     startButton.innerHTML = 'Start';
     bar.setAttribute('style', 'border: ;');
     level.setAttribute('style', 'display: none');
+    setTitle('timer');
   },
   // clearTimer: function() {
   //   stopTimer(this.timerId);
@@ -114,6 +118,7 @@ var countdown = {
     startButton.innerHTML = 'Start';
     bar.setAttribute('style', 'border: 2px solid black;');
     level.setAttribute('style', 'display: block');
+    setTitle('timer');
   },
   startTimer: function() {
     this.getInitialSeconds();
@@ -164,6 +169,7 @@ var countdown = {
     this.songStart = false;
     startButton.innerHTML = 'Start';
     this.seconds = 0;
+    setTitle('timer');
   },
   updateTime: function(){
     var self = this;
@@ -171,6 +177,7 @@ var countdown = {
         self.seconds -= 1;
         timerText.innerHTML = 'Seconds Left = ' + self.seconds;
         self.updateLevel();
+        setTitle(self.seconds);
       }, 1000);
   },
   updateLevel: function(){
@@ -245,4 +252,11 @@ function clearClicked(){
   for (var i = 0; i < this.buttonArray.length; i++) {
     this.buttonArray[i].className = '';
   }
+}
+
+
+document.head.title.innerHTML = 'change';
+
+function setTitle(word) {
+  title.innerHTML = word;
 }
