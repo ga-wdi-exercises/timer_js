@@ -4,26 +4,39 @@ var start = document.getElementById('start');
 var reset = document.getElementById('reset');
 var pause = document.getElementById('pause');
 
-//selectors for each timer button
-start.addEventListener("click", startClickEvent);
-// reset.addEventListener("click", resetClickEvent);
-// pause.addEventListener("click", pauseClickEvent);
-
 //start button first click - timer start
-var seconds=0;
+  //add event listener
+start.addEventListener("click", startClickEvent);
+  //start button first click - timer start
+seconds=0;
 function startClickEvent(evt) {
   //set clock count
-
-  var timerId=setInterval(updateTime, 1000)
-}
-
-
+  timerId=setInterval(updateTime, 1000)
+};
+  //increment counter and update screen
 function updateTime(){
-//increment counter and update screen
   seconds++
   document.querySelector('#timer').innerHTML=seconds
-}
+};
+  //console.log for my benefit
+  console.log('seconds', seconds++);
 
+//pause button - stops counting and text changes to ""'Elapsed Time: '+ seconds"
+  //add event listener
+pause.addEventListener('click', pauseClickEvent);
+  //stop counter
+function pauseClickEvent(evt) {
+  console.log('pause clicked')
+  clearInterval(timerId)
+  document.querySelector('#timer').innerHTML='Elapsed Time: '+seconds
+};
 
-
-console.log('seconds', seconds++);
+//reset button - text returns to "stop watch"
+  //add event listener
+reset.addEventListener("click", resetClickEvent);
+  //reset header from time to 'Stop Watch'
+function resetClickEvent(evt) {
+  console.log('reset clicked')
+  document.querySelector('#timer').innerHTML='Stop Watch'
+  seconds=0
+};
