@@ -24,5 +24,14 @@ setupListeners: function () {
   this.els.pause.addEventListner('click', function () {
     clarInterval(this.timerId);
   }.bind(this));
+
+  this.els.reset.addEventListener('click', function() {
+    alert('reset');
+    this.seconds = 0;
+    clearInterval(this.timerId);
+    this.els.timer.textContent = 'Stop Watch';
+  }.bind(this));
 }
 };
+
+timer.setupListeners();
