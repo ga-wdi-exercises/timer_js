@@ -14,5 +14,13 @@ updateTime: function() {
   this.els.timer.textContent = 'Time elapsed: ' + this.seconds;
 },
 
+setupListeners: function () {
+  this.els.start.addEventListener('click', function() {
+    alert('start');
+    this.els.timer.textContent = 'Time Elapsed: ' + this.seconds;
+    this.timerId = setInterval(this.updateTime.bind(this), 1000);
+  }.bind(this));
+}
+
 
 };
