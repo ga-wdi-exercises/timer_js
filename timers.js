@@ -20,7 +20,9 @@ setupListeners: function () {
     this.els.timer.textContent = 'Time Elapsed: ' + this.seconds;
     this.timerId = setInterval(this.updateTime.bind(this), 1000);
   }.bind(this));
+
+  this.els.pause.addEventListner('click', function () {
+    clarInterval(this.timerId);
+  }.bind(this));
 }
-
-
 };
