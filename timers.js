@@ -9,10 +9,10 @@ var timer =  {
     pause: document.getElementById("pause"),
   },
 
-  updateTime: function updateTime(){
-    this.seconds++;
-    this.els.timer.textContent = 'Time elapsed: ' + this.seconds;
-  },
-  
+updateTime: function() {
+  this.seconds++;
+  this.els.timer.textContent = 'Time elapsed: ' + this.seconds;
+},
+
 
 };
