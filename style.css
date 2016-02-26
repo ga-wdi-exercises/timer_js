@@ -28,3 +28,25 @@ button:hover{
     background: #356094;
 }
 
+#container {
+  height: 150px;
+  width: 480px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin: 0 auto;
+}
+
+#hrs, #mins, #sec {
+  height: 100%;
+  width: 33%;
+  border: 5px solid #E91E63;
+  background-color: #009688;
+  text-align: center;
+  line-height: 150px;
+  font-family: Josefin Slab;
+  font-size: 72px;
+  font-weight: bold;
+  color: white;
+}
+

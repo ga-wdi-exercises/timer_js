@@ -3,6 +3,7 @@
 <head>
   <meta charset="utf-8">
   <link rel="stylesheet" href="style.css">
+  <script type="text/javascript" src="timers.js"></script>
   <title>i &hearts; js</title>
 </head>
 <body>
@@ -13,7 +14,17 @@
     <button id="start">Start</button>
     <button id="pause">Pause</button>
   </div>
+  <div id="container">
+	<div id="hrs"></div>
+	<div id="mins"></div>
+	<div id="sec"></div>
+</div>
 
-<script src="timers.js"></script>
+<script>
+	function onBodyLoad() {
+		MyTime.init();
+	}
+	window.addEventListener('load', onBodyLoad);
+</script>
 </body>
 </html>
