@@ -33,8 +33,8 @@ function pauseTimer() {
 }
 
 
-  function resetTimer(){
+function resetTimer(){
     clearInterval(timerId);
     seconds=0;
-    $("h1").text("Stopwatch");
+    $("h1").text("Stop Watch");
   }
