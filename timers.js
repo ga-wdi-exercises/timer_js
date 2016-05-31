@@ -15,49 +15,59 @@ Specifications
  */
 
 function initTimer() {
+
   // Constants
   var DEFAULT_TEXT = "Stop Watch";
+  var TIMER_PREFIX = "Time elapsed: ";
 
   // References to the HTML elements.
   var $timer = $( '#timer' );
-  var $reset = $( '#reset' );
   var $start = $( '#start' );
   var $pause = $( '#pause' );
+  var $reset = $( '#reset' );
 
   // State of the timer.
   var timerId = null;
-  var seconds = 0;
+  var currentSeconds = 0;
 
-  // Create click handlers (empty, for now) for each of the timer buttons.
+  // Add click listeners to all the buttons.
   $start.on( 'click', handleStart );
-  $reset.on( 'click', handleReset );
   $pause.on( 'click', handlePause );
+  $reset.on( 'click', handleReset );
 
   /**
-   * Increments the seconds counter and inserts that value into the <h1> element
-   * with id="timer".
+   * Increments the currentSeconds counter and inserts that value into the
+   * <h1> element with id="timer".
    */
   function updateTime() {
-    $timer.html( Number( $timer.html() ) + 1 );
+    // Extract the numeric text from the timer by removing the prefix.
+    var timeText =  $timer.html().replace( TIMER_PREFIX , "" );
+
+    // Convert the time text to number and increment it by one.
+    $timer.html( Number( timeText ) + 1 );
+
+    // Add the prefix to the text.
+    $timer.prepend( TIMER_PREFIX );
   }
 
   /**
-   * Replaces the text "Stop Watch" in the HTML with the content of the seconds variable.
+   * Replaces the text "Stop Watch" in the HTML with the content of the
+   * currentSeconds variable.
    */
   function handleStart() {
 
     // If time ID is present, do nothing.
     if ( timerId ) return;
 
-    // Instantiate seconds and timerId variables for your timer.
-    // The latter will make more sense after reading up on setInterval().
-
+    // Start the timer and remember the timer ID so that we can reset it later.
     timerId = setInterval( updateTime, 1000 );
-    $timer.html( seconds );
+
+    // Set the starting time.
+    $timer.html( TIMER_PREFIX + currentSeconds );
   }
 
   /**
-   * Stops -- but does not reset! -- the timer using clearInterval().
+   * Stops (but does not reset) the timer.
    */
   function handlePause() {
 
@@ -65,7 +75,7 @@ function initTimer() {
     if ( ! timerId ) return;
 
     // Remember the current time.
-    seconds = $timer.html();
+    currentSeconds = $timer.html();
 
     // Stop the timer.
     clearInterval( timerId );
@@ -80,7 +90,6 @@ function initTimer() {
    * Replaces the time in your HTML with the original "Stop Watch" text.
    */
   function handleReset() {
-    console.log("reset was clicked");
 
     // If the timer is not on pause, stop it.
     if ( timerId ) {
@@ -88,12 +97,13 @@ function initTimer() {
     };
 
     // Reset the timer.
-    seconds = 0;
+    currentSeconds = 0;
 
     // Replace the time in your HTML with the original "Stop Watch" text.
     $timer.html( DEFAULT_TEXT );
   }
 } // end initTimer
+
 
 // Execute the timer when the document is loaded.
 $( document ).ready( function(){
