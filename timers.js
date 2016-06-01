@@ -1,9 +1,24 @@
 $(document).ready(function() {
-  var time = 0;
+  var seconds = 0;
+  var timerId;
   $("#start").on("click", function() {
-    setInterval(function() {
-      time += 1;
-      $("#timer").html(time);
+    timerId = setInterval(function() {
+      seconds += 1;
+      $("#timer").text(seconds);
     }, 1000);
   });
+
+  $("#pause").on("click", function() {
+    pauseTime();
+    });
+
+  $("#reset").on("click", function() {
+
+  });
+
+  function pauseTime() {
+    clearInterval(function() {
+      updateTime();
+    });
+  }
 });
