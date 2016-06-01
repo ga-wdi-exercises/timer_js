@@ -3,12 +3,11 @@
 var reset = $("#reset");
 var start = $("#start");
 var pause = $("#pause");
+var timerID = $("#timer");
 
 function seconds(){
   timerID/1000
 }
-
-var timerID = $("#timer");
 
 reset.on("click", clearTime)
 start.on("click", updateTime)
@@ -20,7 +19,7 @@ pause.on("click", pauseTime)
 
 
 function updateTime(){
-  while !updateTime,!pauseTime
+  while (performance.now(start) > performance.now(pause))
   timerID = (timerID*1000) + setInterval(1000)
 }
 
