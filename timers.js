@@ -11,17 +11,21 @@ function countUp() {
 }
 
 function startTime() {
-    $("h1").text("Time elapsed: "+seconds);
+    if (timerID == null) {
+    $("h1").text("Time elapsed: "+seconds.toFixed(2));
     timerID = setInterval(countUp, 10);
+    }
 };
 
 function pauseTime() {
     clearInterval(timerID);
+    timerID = null;
 };
 
 function resetTime() {
     clearInterval(timerID);
     seconds = 0;
+    timerID = null;
     $("h1").text("Stop Watch");
 };
 
