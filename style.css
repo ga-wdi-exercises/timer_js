@@ -27,4 +27,18 @@ button {
 button:hover{
     background: #356094;
 }
+.timerBox{
+text-align: center;
 
+
+}
+#hours,#minutes,#seconds{
+  display:inline-block;
+  width: 100px;
+  height:100px;
+  background-color: rgba(21, 56, 89, 0.3);
+
+}
+p{
+  display: inline-block;
+}
