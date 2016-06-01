@@ -1,24 +1,24 @@
-var s = 0;
-var t;
-var tm = true;
+var secondsShown = 0;
+var clock;
+var timeStarted = true;
 
 
 $("#start").on("click", startWatch); // Start
 
 function startWatch(){
-    if (tm == true){ // added this if statement to prevent multiple intervals but wont start again after Pause
-     t = setInterval(function(){
-      $("#timer").text(s); s++;
+    if (timeStarted == true){ // added this if statement to prevent multiple intervals but wont start again after Pause
+     clock = setInterval(function(){
+      $("#timer").text(secondsShown); secondsShown++;
     }, 1000);
-    tm = false;
+    timeStarted = false;
 }
 }
 
 $("#pause").on("click", pauseWatch); // pause
 
 function pauseWatch(){
-  window.clearInterval(t);
-  tm = true;
+  window.clearInterval(clock);
+  timeStarted = true;
   }
 
 $("#reset").on("click", resetWatch);
@@ -26,9 +26,9 @@ $("#reset").on("click", resetWatch);
 
 
 function resetWatch(){
-  clearInterval(t); // added this line to make the completely stop
+  clearInterval(clock); // added this line to make the completely stop
   $("#timer").text("0");
-  tm = true;
-  s = 0;
+  timeStarted = true;
+  secondsShown = 0;
   // startWatch(); //took out this line to stop the button recounting
 }
