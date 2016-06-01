@@ -6,13 +6,13 @@ var seconds = 0;
 var timerID;
 
 function countUp() {
-    seconds++;
-    $("h1").text("Time elapsed: "+seconds);
+    seconds = seconds+.01;
+    $("h1").text("Time elapsed: "+seconds.toFixed(2));
 }
 
 function startTime() {
     $("h1").text("Time elapsed: "+seconds);
-    timerID = setInterval(countUp, 1000);
+    timerID = setInterval(countUp, 10);
 };
 
 function pauseTime() {
