@@ -28,3 +28,14 @@ button:hover{
     background: #356094;
 }
 
+.timerBox{
+text-align: center;
+}
+
+p{
+  display: inline-block;
+}
+h1{
+  background-color: rgba(242, 242, 242, 0.8);
+  
+}
