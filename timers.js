@@ -42,7 +42,7 @@ var timer = {
 // this fuction adds an event listener to the #reset id element,
 // it prints 'reset' to the console log,
 // clear's the timer's memory
-// and prints stop watch upon being clicked. 
+// and prints stop watch upon being clicked, reseting the timer in the gui numericaly. 
     this.els.reset.addEventListener('click', function() {
       console.log('reset');
       this.seconds = 0;
