@@ -1,35 +1,41 @@
 var timer = {
   seconds: 0,
   timerId: 0,
+  hasStarted: false,
 
   els: {
-    timer: document.getElementById("timer"),
-    reset: document.getElementById("reset"),
-    start: document.getElementById("start"),
-    pause: document.getElementById("pause"),
+    timer: $("#timer"),
+    reset: $("#reset"),
+    start: $("#start"),
+    pause: $("#pause"),
   },
 
   updateTime: function updateTime(){
     this.seconds++;
-    this.els.timer.textContent = 'Time elapsed: ' + this.seconds;
+    this.els.timer.text('Time elapsed: ' + this.seconds);
   },
 
   setupListeners: function () {
-    this.els.start.addEventListener('click', function() {
+    this.els.start.on('click', function() {
       console.log('start');
-      this.els.timer.textContent = 'Time elapsed: ' + this.seconds;
-      this.timerId = setInterval(this.updateTime.bind(this), 1000);
+      this.els.timer.text('Time elapsed: ' + this.seconds);
+      if (this.hasStarted === false){
+        this.timerId = setInterval(this.updateTime.bind(this), 1000);
+        this.hasStarted = true;
+      }
     }.bind(this));
 
-    this.els.pause.addEventListener('click', function() {
+    this.els.pause.on('click', function() {
       clearInterval(this.timerId);
+      this.hasStarted = false;
     }.bind(this));
 
-    this.els.reset.addEventListener('click', function() {
-      console.log('reset');
+    this.els.reset.on('click', function() {
       this.seconds = 0;
+      console.log('reset ' + this.seconds);
       clearInterval(this.timerId);
-      this.els.timer.textContent = 'Stop Watch';
+      this.hasStarted = false;
+      this.els.timer.text('Stop Watch');
     }.bind(this));
   }
 }
