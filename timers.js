@@ -1,36 +1,29 @@
 var startButton = document.getElementById("start");
 var timerText = document.getElementById("timer");
-var timeCount = 0;
+var seconds = 0;
 var resetButton = document.getElementById("reset");
 var pauseButton = document.getElementById("pause");
 var timeInterval;
 
-startButton.addEventListener("click", startTimer);
-resetButton.addEventListener("click", resetTimer);
-pauseButton.addEventListener("click", pauseTimer);
+startButton.addEventListener("click", updateTime);
+resetButton.addEventListener("click", resetTime);
+pauseButton.addEventListener("click", pauseTime);
 
-// var setTimer = setInterval(startTimer,1000);
-//
-// function startTimer() {
-//   timeCount.textContent = timeCount++;
-//   timerText.textContent = "Time elapsed:" + " " + timeCount;
-// }
-
-function startTimer() {
-  timeInterval = setInterval(timeCountStart,1000);
+function updateTime() {
+  timeInterval = setInterval(startTime,1000);
 }
 
-function timeCountStart() {
-  timeCount.textContent = timeCount++;
-  timerText.textContent = "Time elapsed:" + " " + timeCount;
+function startTime() {
+  seconds.textContent = seconds++;
+  timerText.textContent = "Time elapsed:" + " " + seconds;
 }
 
-function resetTimer() {
+function resetTime() {
   clearInterval(timeInterval);
   timerText.textContent = "Stop Watch";
-  timeCount = 0;
+  seconds = 0;
 }
 
-function pauseTimer() {
+function pauseTime() {
   clearInterval(timeInterval);
 }
