@@ -4,6 +4,7 @@ var seconds = 0;
 var resetButton = document.getElementById("reset");
 var pauseButton = document.getElementById("pause");
 var timeInterval;
+var paused = false;
 
 startButton.addEventListener("click", updateTime);
 resetButton.addEventListener("click", resetTime);
@@ -22,8 +23,14 @@ function resetTime() {
   clearInterval(timeInterval);
   timerText.textContent = "Stop Watch";
   seconds = 0;
+  paused = false;
 }
 
 function pauseTime() {
-  clearInterval(timeInterval);
+  paused = !paused;
+    if (paused) {
+    clearInterval(timeInterval);
+  } else {
+    startTime();
+  }
 }
