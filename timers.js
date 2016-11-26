@@ -29,13 +29,13 @@ theButtons: {
 //document.getElementById("timer").innerHtml = "seconds";
 updateTime: function updateTime(){
   this.seconds++;
-  this.theButtons.getElementById("#timer").innerHTML = ('Time elaspsed: ' + this.seconds);
+  this.theButtons.getElementById("#timer").innerHTML = 'Time elaspsed: ' + this.seconds;
 //seconds++
 },
 
  clickHandlers: function(){
    this.theButtons.start.onClick('click', function(){
-      this.theButtons.getElementById("#timer").innerHTML = ('Time elaspsed: ' + this.seconds);
+      this.theButtons.getElementById("#timer").innerHTML = 'Time elaspsed: ' + this.seconds;
       this.timerId = setInterval(this.updateTime.bind(this), 1000);
  }.bind(this));
 
@@ -52,12 +52,12 @@ updateTime: function updateTime(){
     this.theButtons.reset.onClick ('click',function (){
       this.seconds = 0;
       clearInterval(this.timerId);
-      this.theButtons.getElementById('#timer').innerHTML = ("Stop Watch");
+      this.theButtons.getElementById('#timer').innerHTML = 'Stop Watch';
 //document.getElementById("#timer").innerHTML = ("Stop Watch");
 //clearInterval()
  }.bind(this));
 
   }
-};
+}
 
 timer.clickHandlers();
