@@ -29,19 +29,19 @@ theButtons: {
 //document.getElementById("timer").innerHtml = "seconds";
 updateTime: function updateTime(){
   this.seconds++;
-  this.theButtons.getElementById("#timer").innerHTML = 'Time elaspsed: ' + this.seconds;
+  this.theButtons.timer.textContent = 'Time elaspsed: ' + this.seconds;
 //seconds++
 },
 
  clickHandlers: function(){
-   this.theButtons.start.onClick('click', function(){
-      this.theButtons.getElementById("#timer").innerHTML = 'Time elaspsed: ' + this.seconds;
+   this.theButtons.start.addEventListener('click', function(){
+      this.theButtons.timer.textContent = 'Time elaspsed: ' + this.seconds;
       this.timerId = setInterval(this.updateTime.bind(this), 1000);
  }.bind(this));
 
 
  //function stopTime(){
-    this.theButtons.pause.onClick('click', function(){
+    this.theButtons.pause.addEventListener('click', function(){
       clearInterval(this.timerId);
     }.bind(this));
 
@@ -49,10 +49,10 @@ updateTime: function updateTime(){
 //setTimeout()
 //};
 
-    this.theButtons.reset.onClick ('click',function (){
+    this.theButtons.reset.addEventListener ('click',function (){
       this.seconds = 0;
       clearInterval(this.timerId);
-      this.theButtons.getElementById('#timer').innerHTML = 'Stop Watch';
+      this.theButtons.timer.textContent = 'Stop Watch';
 //document.getElementById("#timer").innerHTML = ("Stop Watch");
 //clearInterval()
  }.bind(this));
