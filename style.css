@@ -5,6 +5,11 @@
   text-align: center;
 }
 
+body{
+  background-color: black;
+  color: #2cf221;
+}
+
 h1 {
   font-family: Josefin Slab;
   font-size: 72px;
@@ -12,12 +17,12 @@ h1 {
 }
 
 button {
-  background: #4479BA;
-  color: #FFF;
+  background: black;
+  color: #2cf221;
   font-family: Josefin Slab;
   font-size: 50px;
   text-align: center;
-  border: 1px solid black;
+  border: 1px solid #2cf221;
   margin: 20px;
   padding: 15px 25px;
   border-radius: 10px;
@@ -25,6 +30,5 @@ button {
 }
 
 button:hover{
-    background: #356094;
+    background: gray;
 }
-
