@@ -11,12 +11,15 @@ h1 {
   text-align: center;
 }
 
+
+
 button {
+  text-align: center;
+  float: none;
   background: #4479BA;
   color: #FFF;
   font-family: Josefin Slab;
   font-size: 50px;
-  text-align: center;
   border: 1px solid black;
   margin: 20px;
   padding: 15px 25px;
@@ -27,4 +30,3 @@ button {
 button:hover{
     background: #356094;
 }
-
