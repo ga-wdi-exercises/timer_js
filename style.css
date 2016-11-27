@@ -1,5 +1,9 @@
 @import url(http://fonts.googleapis.com/css?family=Josefin+Slab);
 
+.controls {
+  margin: 50px;
+  text-align: center;
+}
 
 h1 {
   font-family: Josefin Slab;

@@ -16,7 +16,9 @@ pause.addEventListener('click', function(){
 });
 
 reset.addEventListener('click', function(){
-  clearInterval();
+  seconds = 0;
+  resetCount = clearInterval(startCount);
+  document.getElementsByTagName('h1')[0].innerHTML=seconds;
 });
 
 
@@ -26,8 +28,12 @@ function updateTime(){
 
    document.getElementsByTagName('h1')[0].innerHTML=seconds;
    seconds++;
+
+
  // }//for
-}//updateTime function
+}
+
+//updateTime function
 
 //
 // document.getElementById('start').click(setInterval(updateTime, 1000));
