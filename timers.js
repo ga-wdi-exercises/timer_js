@@ -24,5 +24,5 @@ pause.addEventListener('click', function() {
 reset.addEventListener('click', function(){
     seconds = 0;
     clearInterval(startCount);
-    document.getElementsByTagName('h1')[0].innerHTML=seconds;
+    document.getElementsByTagName('h1')[0].innerHTML= "Stop Watch";
 });
