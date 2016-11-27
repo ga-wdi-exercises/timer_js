@@ -12,7 +12,7 @@ Spend 10 minutes looking at [JavaScript Timers](https://developer.mozilla.org/en
 
 ####Take It Step By Step
 
-This is a tough assignment, so don't stress over meeting all the requirements. Just take it step by step and try to meet the benchmarks below in order.  
+This is a tough assignment, so don't stress over meeting all the requirements. Just take it step by step and try to meet the benchmarks below in order.
 
 1. Create Javascript selectors that target each of the timer buttons.
 2. Create click handlers (empty, for now) for each of the timer buttons.
@@ -28,7 +28,8 @@ This is a tough assignment, so don't stress over meeting all the requirements. J
 8. Inside your click handler for the reset button...
   - Stop the timer using `clearInterval()`.
   - Reset the timer.
-  - Replace the time in your HTML with the original "Stop Watch" text.
+
+- Replace the time in your HTML with the original "Stop Watch" text.
 
 ####Bonus
 
