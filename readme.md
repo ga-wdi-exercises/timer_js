@@ -10,9 +10,19 @@ We've been tasked with building out the behavior for a digital stopwatch, the in
 ####Directions
 Spend 10 minutes looking at [JavaScript Timers](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Timers), then check out the specific documentation for `setInterval` and `clearInterval`.
 
+setImmediate()
+  Calls a function immediately after the browser has completed other operations, such as events and display updates.
+clearTimeout()
+  Clears the delay set by setTimeout().
+clearInterval()
+  Cancels repeated action which was set up using setInterval().
+clearImmediate()
+  Cancels the immediate actions, just like clearTimeout() for setTimeout().
+
+
 ####Take It Step By Step
 
-This is a tough assignment, so don't stress over meeting all the requirements. Just take it step by step and try to meet the benchmarks below in order.  
+This is a tough assignment, so don't stress over meeting all the requirements. Just take it step by step and try to meet the benchmarks below in order.
 
 1. Create Javascript selectors that target each of the timer buttons.
 2. Create click handlers (empty, for now) for each of the timer buttons.
