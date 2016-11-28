@@ -1,5 +1,9 @@
 @import url(http://fonts.googleapis.com/css?family=Josefin+Slab);
 
+#counterTime {
+  display: none; 
+}
+
 .controls {
   margin: 50px;
   text-align: center;
@@ -27,4 +31,3 @@ button {
 button:hover{
     background: #356094;
 }
-
