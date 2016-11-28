@@ -1,7 +1,13 @@
 @import url(http://fonts.googleapis.com/css?family=Josefin+Slab);
 
-#counterTime {
-  display: none; 
+#timer {
+  background-color: #9b9fa5;
+  border: 1px solid black;
+  box-shadow: 2px 2px black;
+  border-radius: 10px;
+  margin: 20px;
+  padding: 15px 25px;
+  font-family: Josefin Slab;
 }
 
 .controls {
