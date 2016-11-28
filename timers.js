@@ -2,27 +2,34 @@ $(function() {
 
   var second;
   var intervalId;
+  var count=0;
+  var timerRunning = false;
 
   function updateTime(){
-    var count = 0;
-    second = setInterval(function(){
-      $('#timer').text('Time Elapsed: '+ count);
-      count++
-    }, 1000);
+    if (timerRunning === false) {
+      second = setInterval(function(){
+        $('#timer').text('Time Elapsed: '+ count);
+        count++
+      }, 1000);
+      timerRunning = true;
+    };
   };
 
-  $('#reset').on('click', function(event){
-    console.log('reset was clicked');
-  });
+  function pauseTime() {
+    clearInterval(second);
+    timerRunning = false;
+  };
+
+  function resetTime() {
+    pauseTime();
+    count = 0;
+    timerRunning = false;
+    $('#timer').text('Time Elapsed: ' + count)
+  };
+
+  $('#reset').on('click', resetTime);
 
   $('#start').on('click', updateTime);
 
-  $('#pause').on('click', function(event){
-    console.log('pause was clicked');
-  });
-
-  //reset function
-  var resetTimer = function(event){
-    clearInterval(intervalId);
-  }
+  $('#pause').on('click', pauseTime);
 });
