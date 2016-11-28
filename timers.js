@@ -24,10 +24,11 @@ startTime = function(){
 
 $('#start').on('click', startTime);
 
+//================================
 
 // var Timer = {
 //
-// time: 0,
+// time : 0,
 //
 // addTime : function(){
 //   time = time+1;
@@ -36,20 +37,20 @@ $('#start').on('click', startTime);
 // },
 // resetTime : function(intervalTime){
 //   clearInterval(intervalTime);
-//   this.time = 0;
-//   $('#timer').html(this.time);
+//   time = 0;
+//   $('#timer').html(time);
 // },
 //
 // startTime : function(){
 //   var intervalTime = setInterval(this.addTime,1000);
 //   $('#pause').on('click',function(){
-//     clearInterval(this.intervalTime);
+//     clearInterval(intervalTime);
 //   });
 //   $('#reset').on('click',function(){
-//     resetTime(this.intervalTime);
-//   });
-// }
+//     resetTime(intervalTime);
+//   })
+// },
 //
 // };
 //
-// $('#start').on('click', Time.startTime);
+// $('#start').on('click', Timer.startTime);
