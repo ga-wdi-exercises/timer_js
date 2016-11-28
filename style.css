@@ -1,7 +1,8 @@
 @import url(http://fonts.googleapis.com/css?family=Josefin+Slab);
 
 #timer {
-  background-color: #9b9fa5;
+  color: #FFF;
+  background: -webkit-radial-gradient(#4479BA, #9b9fa5);
   border: 1px solid black;
   box-shadow: 2px 2px black;
   border-radius: 10px;
@@ -15,6 +16,10 @@
   text-align: center;
 }
 
+body {
+  background: -webkit-linear-gradient(#FFF, #9b9fa5);
+}
+
 h1 {
   font-family: Josefin Slab;
   font-size: 72px;
@@ -22,7 +27,7 @@ h1 {
 }
 
 button {
-  background: #4479BA;
+  background: -webkit-radial-gradient(#4479BA, #9b9fa5);
   color: #FFF;
   font-family: Josefin Slab;
   font-size: 50px;
