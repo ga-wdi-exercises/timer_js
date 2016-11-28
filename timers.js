@@ -1,21 +1,21 @@
 $(function() {
 
-  var second = 0;
+  var second;
   var intervalId;
+
+  function updateTime(){
+    var count = 0;
+    second = setInterval(function(){
+      $('#timer').text('Time Elapsed: '+ count);
+      count++
+    }, 1000);
+  };
 
   $('#reset').on('click', function(event){
     console.log('reset was clicked');
   });
 
-  $('#start').on('click', function(event){
-    console.log('start was clicked');
-    intervalId = setInterval(function(){
-      second++;
-          });
-      //change timer value to counter
-      $('#timer').text('Time Elapsed: ');
-      $('#counterTime').val(intervalId).show();
-  });
+  $('#start').on('click', updateTime);
 
   $('#pause').on('click', function(event){
     console.log('pause was clicked');
