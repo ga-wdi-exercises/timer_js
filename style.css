@@ -9,22 +9,44 @@ h1 {
   font-family: Josefin Slab;
   font-size: 72px;
   text-align: center;
+  color: red;
+  border-bottom: 10px solid black;
+  text-shadow: 4px 0px black;
 }
 
 button {
-  background: #4479BA;
-  color: #FFF;
+  background: green;
+  color: black;
   font-family: Josefin Slab;
   font-size: 50px;
   text-align: center;
-  border: 1px solid black;
+  border: 10px solid black;
   margin: 20px;
   padding: 15px 25px;
   border-radius: 10px;
   box-shadow: 2px 2px black;
+  text-decoration: underline;
 }
 
 button:hover{
-    background: #356094;
+    background: red;
 }
 
+body {
+    background-image: url("file:///Users/Erik/Desktop/IMG_9438.jpg");
+     background-position: center;
+     background-repeat: no-repeat;
+     background-color: black;
+}
+
+p {
+  text-align: center;
+  color: red;
+  font-size: 40px;
+  text-shadow: 4px 0px black;
+}
+
+img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto }
