@@ -16,32 +16,28 @@
   - Replace the time in your HTML with the original "Stop Watch" text.
 */
 
-let start = $('#start');
-let pause = $('#pause');
-let reset = $('#reset');
-
-$(reset).on("click");
-let timerId = $('#timer');
 let seconds = 0;
 
 let updateTime = function(){
-
   const addSecond = function() {
   seconds = seconds + 1;
   $('#timer').html(seconds);
   }
   interval = setInterval(addSecond, 1000);
 };
-$(start).on("click", updateTime);
+
+$('#start').on("click", updateTime);
 
 let stopTime = function(){
   clearInterval(interval);
 };
-$(pause).on("click", stopTime);
+
+$('#pause').on("click", stopTime);
 
 let resetTime = function(){
   clearInterval(interval);
   seconds = 0;
   $('#timer').html("Stop Watch");
 };
-$(reset).on("click", resetTime);
+
+$('#reset').on("click", resetTime);
