@@ -4,6 +4,14 @@
   margin: 50px;
   text-align: center;
 }
+#stopwatch {
+  text-align: center;
+  font-size: 60px;
+}
+#timer {
+  text-align: center;
+  font-size: 55px;
+}
 
 h1 {
   font-family: Josefin Slab;
@@ -27,4 +35,3 @@ button {
 button:hover{
     background: #356094;
 }
-
