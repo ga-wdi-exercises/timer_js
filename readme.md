@@ -2,6 +2,8 @@
 
 We've been tasked with building out the behavior for a digital stopwatch, the interface for which is in `index.html`.
 
+[Here's a working version of the app](http://ga-wdi-exercises.github.io/timer_js/).
+
 ### Client Specs
 
 * When "Start" is clicked, the text "Stop Watch" should be replaced by "Time elapsed: 0", and the count should increment every second.
