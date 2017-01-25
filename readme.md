@@ -30,7 +30,7 @@ This is a tough assignment, so don't stress over meeting all the requirements. J
   - Reset the timer.
   - Replace the time in your HTML with the original "Stop Watch" text.
 
-####Bonus
+### Bonus
 
 Reformat your timer so that everything in your `timers.js` file -- variables and functions -- are part of a global object. It would look something like...
 
