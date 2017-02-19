@@ -1,8 +1,23 @@
 @import url(http://fonts.googleapis.com/css?family=Josefin+Slab);
 
+#timer {
+  color: #FFF;
+  background: -webkit-radial-gradient(#4479BA, #9b9fa5);
+  border: 1px solid black;
+  box-shadow: 2px 2px black;
+  border-radius: 10px;
+  margin: 20px;
+  padding: 15px 25px;
+  font-family: Josefin Slab;
+}
+
 .controls {
   margin: 50px;
   text-align: center;
+}
+
+body {
+  background: -webkit-linear-gradient(#FFF, #9b9fa5);
 }
 
 h1 {
@@ -12,7 +27,7 @@ h1 {
 }
 
 button {
-  background: #4479BA;
+  background: -webkit-radial-gradient(#4479BA, #9b9fa5);
   color: #FFF;
   font-family: Josefin Slab;
   font-size: 50px;
@@ -27,4 +42,3 @@ button {
 button:hover{
     background: #356094;
 }
-
