@@ -24,7 +24,11 @@ button {
   box-shadow: 2px 2px black;
 }
 
+.cyan {
+  background-color: cyan;
+  color: black;
+}
+
 button:hover{
     background: #356094;
 }
-
