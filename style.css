@@ -12,7 +12,7 @@ h1 {
 }
 
 button {
-  background: #4479BA;
+  background: lightgreen;
   color: #FFF;
   font-family: Josefin Slab;
   font-size: 50px;
@@ -27,4 +27,3 @@ button {
 button:hover{
     background: #356094;
 }
-
