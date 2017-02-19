@@ -1,4 +1,4 @@
-@import url(http://fonts.googleapis.com/css?family=Josefin+Slab);
+@import url(https://fonts.googleapis.com/css?family=Arya);
 
 .controls {
   margin: 50px;
@@ -6,15 +6,24 @@
 }
 
 h1 {
-  font-family: Josefin Slab;
-  font-size: 72px;
+  font-family: Arya;
+  font-size: 90px;
   text-align: center;
 }
 
+body {
+  background-color: #778899;
+}
+
+span {
+  font-size: 110px;
+  font-family: Arya;
+}
+
 button {
-  background: #4479BA;
+  background: #00a9e4;
   color: #FFF;
-  font-family: Josefin Slab;
+  font-family: Arya;
   font-size: 50px;
   text-align: center;
   border: 1px solid black;
@@ -25,6 +34,5 @@ button {
 }
 
 button:hover{
-    background: #356094;
+    background: #00d9ea;
 }
-
