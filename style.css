@@ -1,15 +1,36 @@
 @import url(http://fonts.googleapis.com/css?family=Josefin+Slab);
 
 .controls {
-  margin: 50px;
+  margin: 60px;
   text-align: center;
+  transition: all .2s ease-in-out;
+}
+#reset {
+  margin-left: 10px;
+  margin-right: 10px;
+}
+#start {
+  margin-left: 10px;
+  margin-right: 10px;
+}
+#pause {
+  margin-left: 10px;
+  margin-right: 10px;
 }
 
-h1 {
-  font-family: Josefin Slab;
-  font-size: 72px;
+#timer {
+  font-family: chalkduster;
+  font-size: 100px;
   text-align: center;
+  color: white;
+  text-shadow: 2px 2px black;
 }
+#whole {
+  margin-top: 350px;
+  margin-right: 50px;
+
+}
+
 
 
 
@@ -21,7 +42,7 @@ button {
   font-family: Josefin Slab;
   font-size: 50px;
   border: 1px solid black;
-  margin: 20px;
+  margin: 30px;
   padding: 15px 25px;
   border-radius: 10px;
   box-shadow: 2px 2px black;
@@ -29,4 +50,17 @@ button {
 
 button:hover{
     background: #356094;
+    transform: scale(1.3);
+}
+body {
+  margin: 0;
+  padding: 0;
+
+/*  Background fallback in case of IE8 & down, or in case video doens't load, such as with slower connections  */
+  background: #333;
+  background-image: url(http://www.comicsbulletin.com/reviews/images/0908/Batgirl--Race%20Cars.jpg);
+  background-position: center;
+  background-position: top;
+  background-size: cover;
+  background-repeat: no-repeat;
 }
